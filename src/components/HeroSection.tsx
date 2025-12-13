@@ -6,6 +6,10 @@ const HeroSection = () => {
     document.getElementById("program")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToInstructor = () => {
+    document.getElementById("instructor")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Video Background with Ken Burns */}
@@ -103,7 +107,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.8 }}
-          onClick={scrollToProgram}
+          onClick={scrollToInstructor}
           className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer"
         >
           <motion.div

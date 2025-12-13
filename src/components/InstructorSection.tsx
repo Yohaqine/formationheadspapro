@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import portrait from "@/assets/portrait.jpeg";
 const InstructorSection = () => {
-  return <section className="relative overflow-hidden bg-stone-gradient py-24 lg:py-32">
+  return <section id="instructor" className="relative overflow-hidden bg-stone-gradient py-24 lg:py-32">
       {/* Decorative Background Elements */}
       <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
       <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-water/10 blur-3xl" />
