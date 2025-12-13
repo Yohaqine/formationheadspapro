@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const reviews = [
   {
@@ -90,6 +90,56 @@ const ReviewCard = ({ review, index }: { review: typeof reviews[0]; index: numbe
 
 const ReviewsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let animationId: number;
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5;
+
+    const autoScroll = () => {
+      if (!isAutoScrolling || !scrollContainer) return;
+      
+      scrollPosition += scrollSpeed;
+      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      
+      if (scrollPosition >= maxScroll) {
+        scrollPosition = 0;
+      }
+      
+      scrollContainer.scrollLeft = scrollPosition;
+      animationId = requestAnimationFrame(autoScroll);
+    };
+
+    animationId = requestAnimationFrame(autoScroll);
+
+    const handleMouseEnter = () => setIsAutoScrolling(false);
+    const handleMouseLeave = () => {
+      scrollPosition = scrollContainer.scrollLeft;
+      setIsAutoScrolling(true);
+    };
+    const handleTouchStart = () => setIsAutoScrolling(false);
+    const handleTouchEnd = () => {
+      scrollPosition = scrollContainer.scrollLeft;
+      setIsAutoScrolling(true);
+    };
+
+    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
+    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
+    scrollContainer.addEventListener("touchstart", handleTouchStart);
+    scrollContainer.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
+      scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
+      scrollContainer.removeEventListener("touchstart", handleTouchStart);
+      scrollContainer.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [isAutoScrolling]);
 
   return (
     <section className="relative overflow-hidden bg-background py-20">
