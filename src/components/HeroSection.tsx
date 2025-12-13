@@ -99,21 +99,22 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Scroll Indicator */}
-        <motion.div
+        <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.8 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
+          onClick={scrollToProgram}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-muted-foreground"
+            className="flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
           >
             <span className="text-xs uppercase tracking-widest">Découvrir</span>
             <ChevronDown className="h-5 w-5 text-gold" />
           </motion.div>
-        </motion.div>
+        </motion.button>
       </div>
     </section>
   );
