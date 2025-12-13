@@ -9,13 +9,13 @@ const HeroSection = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Video Background with Ken Burns */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="h-full w-full object-cover animate-ken-burns"
+          className="min-h-full min-w-full scale-110 object-cover"
         >
           <source src="/videos/training_hero.mov" type="video/mp4" />
         </video>
