@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { MentionsLegalesModal, CGVModal } from "./LegalModals";
 
 const Footer = () => {
   return (
@@ -111,6 +112,19 @@ const Footer = () => {
             <p className="mt-1 text-xs text-muted-foreground/60">
               Lyon, France
             </p>
+          </motion.div>
+
+          {/* Legal Links */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="flex gap-4"
+          >
+            <MentionsLegalesModal />
+            <span className="text-xs text-muted-foreground/40">•</span>
+            <CGVModal />
           </motion.div>
         </div>
       </div>
