@@ -1,33 +1,34 @@
 import { useEffect } from "react";
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'zapier-interfaces-chatbot-embed': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'is-popup'?: string;
+        'chatbot-id'?: string;
+      };
+    }
+  }
+}
+
 const ChatbotWidget = () => {
   useEffect(() => {
-    // Zapier Chatbot Script
-    // Replace the script source with your actual Zapier chatbot embed code
     const script = document.createElement("script");
     script.async = true;
     script.type = "module";
+    script.src = "https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js";
+    document.body.appendChild(script);
     
-    // PASTE YOUR ZAPIER CHATBOT SCRIPT HERE
-    // Example: script.src = "https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js";
-    
-    // Uncomment and configure when you have the Zapier script:
-    // document.body.appendChild(script);
-    
-    // return () => {
-    //   document.body.removeChild(script);
-    // };
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (
-    <div
-      id="zapier-chatbot-container"
-      className="fixed bottom-20 right-4 z-40 md:bottom-4"
-    >
-      {/* Zapier Chatbot will be injected here */}
-      {/* Add your Zapier web component here, e.g.: */}
-      {/* <zapier-interfaces-chatbot-embed ... /> */}
-    </div>
+    <zapier-interfaces-chatbot-embed 
+      is-popup="true" 
+      chatbot-id="cmj4ol7or00du7nme0erfx8ts"
+    />
   );
 };
 
