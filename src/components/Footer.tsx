@@ -50,7 +50,7 @@ const Footer = () => {
 
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/spawoda"
+              href="https://www.instagram.com/headspaformationpro?igsh=MTZ6Mnd3NnR1ZzQ3bg%3D%3D&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex h-12 w-12 items-center justify-center rounded-full border border-border bg-secondary/50 transition-all hover:border-gold hover:bg-gold/10"
@@ -67,7 +67,7 @@ const Footer = () => {
 
             {/* YouTube */}
             <a
-              href="https://www.youtube.com/@spawoda"
+              href="https://youtube.com/@yohaqinechopin?si=3k7VbMitdpMn05pA"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex h-12 w-12 items-center justify-center rounded-full border border-border bg-secondary/50 transition-all hover:border-gold hover:bg-gold/10"
