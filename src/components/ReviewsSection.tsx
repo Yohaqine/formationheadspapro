@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { useRef, useEffect, useState } from "react";
+
 
 const reviews = [
   {
@@ -28,7 +28,9 @@ const reviews = [
     text: "Magnifique moment. Yohaqîne est très professionnelle. Gestes doux et précis, pleins de conseils.",
     rating: 5,
   },
-];
+]; 
+
+const duplicatedReviews = [...reviews, ...reviews];
 
 const ReviewCard = ({ review, index }: { review: typeof reviews[0]; index: number }) => (
   <motion.div
@@ -89,58 +91,6 @@ const ReviewCard = ({ review, index }: { review: typeof reviews[0]; index: numbe
 );
 
 const ReviewsSection = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let animationId: number;
-    let scrollPosition = 0;
-    const scrollSpeed = 0.5;
-
-    const autoScroll = () => {
-      if (!isAutoScrolling || !scrollContainer) return;
-      
-      scrollPosition += scrollSpeed;
-      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      
-      if (scrollPosition >= maxScroll) {
-        scrollPosition = 0;
-      }
-      
-      scrollContainer.scrollLeft = scrollPosition;
-      animationId = requestAnimationFrame(autoScroll);
-    };
-
-    animationId = requestAnimationFrame(autoScroll);
-
-    const handleMouseEnter = () => setIsAutoScrolling(false);
-    const handleMouseLeave = () => {
-      scrollPosition = scrollContainer.scrollLeft;
-      setIsAutoScrolling(true);
-    };
-    const handleTouchStart = () => setIsAutoScrolling(false);
-    const handleTouchEnd = () => {
-      scrollPosition = scrollContainer.scrollLeft;
-      setIsAutoScrolling(true);
-    };
-
-    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
-    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
-    scrollContainer.addEventListener("touchstart", handleTouchStart);
-    scrollContainer.addEventListener("touchend", handleTouchEnd);
-
-    return () => {
-      cancelAnimationFrame(animationId);
-      scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
-      scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
-      scrollContainer.removeEventListener("touchstart", handleTouchStart);
-      scrollContainer.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [isAutoScrolling]);
-
   return (
     <section className="relative overflow-hidden bg-background py-20">
       {/* Background Accent */}
@@ -168,22 +118,17 @@ const ReviewsSection = () => {
         </div>
 
         {/* Horizontal Scroll Carousel */}
-        <div
-          ref={scrollRef}
-          className="scrollbar-hide flex gap-6 overflow-x-auto px-6 pb-4 lg:px-12"
-          style={{ scrollSnapType: "x mandatory" }}
-        >
-          {/* Spacer for centering */}
-          <div className="min-w-[calc(50vw-200px)] shrink-0 lg:min-w-[calc(50vw-220px)]" />
-          
-          {reviews.map((review, index) => (
-            <div key={review.name} style={{ scrollSnapAlign: "center" }}>
-              <ReviewCard review={review} index={index} />
-            </div>
-          ))}
-
-          {/* Spacer for centering */}
-          <div className="min-w-[calc(50vw-200px)] shrink-0 lg:min-w-[calc(50vw-220px)]" />
+        <div className="relative overflow-hidden px-6 pb-4 lg:px-12">
+          <div className="flex w-max gap-6 animate-scroll-left hover:[animation-play-state:paused]">
+            {duplicatedReviews.map((review, index) => (
+              <div
+                key={`${review.name}-${index}`}
+                className="min-w-[320px] shrink-0 scroll-mx-4 md:min-w-[380px]"
+              >
+                <ReviewCard review={review} index={index % reviews.length} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Rating Summary */}

@@ -99,6 +99,10 @@ export default {
           "0%, 100%": { boxShadow: "0 0 0 0 hsl(43 72% 55% / 0.4)" },
           "50%": { boxShadow: "0 0 0 15px hsl(43 72% 55% / 0)" },
         },
+        "scroll-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -107,6 +111,7 @@ export default {
         "slide-in-right": "slide-in-right 0.5s ease-out",
         "scale-in": "scale-in 0.3s ease-out",
         "pulse-gold": "pulse-gold 2s infinite",
+        "scroll-left": "scroll-left 40s linear infinite",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

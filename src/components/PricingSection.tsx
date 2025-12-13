@@ -49,7 +49,7 @@ const PricingSection = () => {
           >
             {/* Discount Badge */}
             <div className="absolute left-4 top-4">
-              <span className="inline-flex items-center gap-1 rounded-full bg-green-500/20 px-3 py-1 text-xs font-bold text-green-400">
+              <span className="inline-flex items-center gap-1 rounded-full bg-gold/20 px-3 py-1 text-xs font-bold text-gold-light">
                 -37%
               </span>
             </div>
@@ -116,7 +116,7 @@ const PricingSection = () => {
           >
             {/* Badges */}
             <div className="absolute left-4 right-4 top-4 flex justify-between">
-              <span className="inline-flex items-center gap-1 rounded-full bg-green-500/20 px-3 py-1 text-xs font-bold text-green-400">
+              <span className="inline-flex items-center gap-1 rounded-full bg-gold/20 px-3 py-1 text-xs font-bold text-gold-light">
                 -41%
               </span>
               <span className="inline-flex items-center gap-1 rounded-full bg-gold/20 px-3 py-1 text-xs font-medium text-gold">
