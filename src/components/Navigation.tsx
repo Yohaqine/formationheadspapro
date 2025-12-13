@@ -61,14 +61,12 @@ const Navigation = () => {
                 {link.label}
               </button>
             ))}
-            <a
-              href="https://www.spawoda.fr/order-form/eyJmIjoxNjQxNDR9/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => scrollToSection("#contact")}
               className="btn-gold rounded-full px-6 py-2 text-xs uppercase tracking-wider"
             >
               S'inscrire
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}

@@ -54,9 +54,8 @@ const ContactSection = () => {
 
       reset();
 
-      // PASTE YOUR CALENDLY URL HERE
-      // Example: window.open("https://calendly.com/your-link", "_blank");
-      // Or redirect: window.location.href = "https://calendly.com/your-link";
+      // Redirect to Calendly after successful submission
+      window.open("https://calendly.com/yohaqine-chopin/30min?month=2025-12", "_blank");
       
     } catch (error) {
       toast({
