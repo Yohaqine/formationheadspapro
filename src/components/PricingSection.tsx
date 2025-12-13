@@ -47,8 +47,15 @@ const PricingSection = () => {
             transition={{ delay: 0.1 }}
             className="glass-card-light group relative overflow-hidden rounded-2xl border border-clay-dark/20 bg-clay/5 p-8"
           >
+            {/* Discount Badge */}
+            <div className="absolute left-4 top-4">
+              <span className="inline-flex items-center gap-1 rounded-full bg-green-500/20 px-3 py-1 text-xs font-bold text-green-400">
+                -37%
+              </span>
+            </div>
+
             {/* Header */}
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-6 mt-6 flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clay-dark/10">
                 <Monitor className="h-6 w-6 text-clay-dark" />
               </div>
@@ -59,10 +66,14 @@ const PricingSection = () => {
             </div>
 
             {/* Price */}
-            <div className="mb-6">
-              <span className="font-display text-5xl font-light text-foreground">190€</span>
-              <span className="ml-2 text-muted-foreground">paiement unique</span>
+            <div className="mb-2">
+              <span className="text-lg text-muted-foreground line-through">300€</span>
             </div>
+            <div className="mb-6 flex items-baseline gap-2">
+              <span className="font-display text-5xl font-light text-foreground">190€</span>
+              <span className="text-muted-foreground">paiement unique</span>
+            </div>
+            <p className="mb-6 text-xs text-gold">Offre limitée jusqu'au 31/12/2025</p>
 
             {/* Features */}
             <ul className="mb-8 space-y-3">
@@ -103,8 +114,11 @@ const PricingSection = () => {
             transition={{ delay: 0.2 }}
             className="group relative overflow-hidden rounded-2xl border-2 border-gold/30 bg-gradient-to-br from-stone-light to-stone p-8"
           >
-            {/* Popular Badge */}
-            <div className="absolute right-4 top-4">
+            {/* Badges */}
+            <div className="absolute left-4 right-4 top-4 flex justify-between">
+              <span className="inline-flex items-center gap-1 rounded-full bg-green-500/20 px-3 py-1 text-xs font-bold text-green-400">
+                -41%
+              </span>
               <span className="inline-flex items-center gap-1 rounded-full bg-gold/20 px-3 py-1 text-xs font-medium text-gold">
                 <Sparkles className="h-3 w-3" />
                 Recommandé
@@ -112,7 +126,7 @@ const PricingSection = () => {
             </div>
 
             {/* Header */}
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-6 mt-6 flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/20">
                 <MapPin className="h-6 w-6 text-gold" />
               </div>
@@ -123,10 +137,14 @@ const PricingSection = () => {
             </div>
 
             {/* Price */}
-            <div className="mb-6">
-              <span className="font-display text-5xl font-light text-gold">594€</span>
-              <span className="ml-2 text-muted-foreground">tout inclus</span>
+            <div className="mb-2">
+              <span className="text-lg text-muted-foreground line-through">1000€</span>
             </div>
+            <div className="mb-6 flex items-baseline gap-2">
+              <span className="font-display text-5xl font-light text-gold">594€</span>
+              <span className="text-muted-foreground">tout inclus</span>
+            </div>
+            <p className="mb-6 text-xs text-gold">Offre limitée jusqu'au 31/12/2025</p>
 
             {/* Features */}
             <ul className="mb-8 space-y-3">
