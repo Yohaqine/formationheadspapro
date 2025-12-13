@@ -110,7 +110,7 @@ const WhySection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-12"
+          className="mx-auto mt-12 max-w-3xl"
         >
           <div className="glass-card relative overflow-hidden rounded-2xl">
             <video
