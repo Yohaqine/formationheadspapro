@@ -58,19 +58,10 @@ const PricingSection = () => {
               </div>
             </div>
 
-            {/* Limited Offer Badge */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1">
-              <span className="text-xs font-medium text-destructive">Offre limitée jusqu'au 31/12/25</span>
-            </div>
-
             {/* Price */}
             <div className="mb-6">
-              <div className="flex items-baseline gap-3">
-                <span className="font-display text-2xl text-muted-foreground line-through">300€</span>
-                <span className="font-display text-5xl font-light text-foreground">190€</span>
-                <span className="rounded-full bg-gold/20 px-2 py-1 text-xs font-semibold text-gold">-37%</span>
-              </div>
-              <span className="text-muted-foreground">paiement unique</span>
+              <span className="font-display text-5xl font-light text-foreground">190€</span>
+              <span className="ml-2 text-muted-foreground">paiement unique</span>
             </div>
 
             {/* Features */}
@@ -131,19 +122,10 @@ const PricingSection = () => {
               </div>
             </div>
 
-            {/* Limited Offer Badge */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1">
-              <span className="text-xs font-medium text-destructive">Offre limitée jusqu'au 31/12/25</span>
-            </div>
-
             {/* Price */}
             <div className="mb-6">
-              <div className="flex items-baseline gap-3">
-                <span className="font-display text-2xl text-muted-foreground line-through">1000€</span>
-                <span className="font-display text-5xl font-light text-gold">594€</span>
-                <span className="rounded-full bg-gold/20 px-2 py-1 text-xs font-semibold text-gold">-41%</span>
-              </div>
-              <span className="text-muted-foreground">tout inclus</span>
+              <span className="font-display text-5xl font-light text-gold">594€</span>
+              <span className="ml-2 text-muted-foreground">tout inclus</span>
             </div>
 
             {/* Features */}
@@ -153,7 +135,6 @@ const PricingSection = () => {
                 "1 journée intensive en présentiel",
                 "Pratique sur modèles réels",
                 "Correction personnalisée",
-                "Kit de démarrage offert",
                 "Suivi post-formation illimité",
               ].map((feature, index) => (
                 <li key={index} className="flex items-center gap-3 text-sm text-foreground">
