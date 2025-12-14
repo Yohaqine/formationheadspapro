@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const MobileSticky = () => {
+  const { t } = useLanguage();
+
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -19,13 +22,13 @@ const MobileSticky = () => {
           rel="noopener noreferrer"
           className="btn-gold flex-1 rounded-full py-3 text-center text-xs uppercase tracking-wider"
         >
-          Formation 190€
+          {t("mobile.training")}
         </a>
         <button
           onClick={scrollToContact}
           className="btn-stone flex-1 rounded-full py-3 text-center text-xs uppercase tracking-wider"
         >
-          Candidater
+          {t("mobile.apply")}
         </button>
       </div>
     </motion.div>

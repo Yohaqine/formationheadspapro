@@ -6,83 +6,56 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { BookOpen, Brain, Hand, Sparkles, Users, Award } from "lucide-react";
-
-const modules = [
-  {
-    id: "module-1",
-    icon: BookOpen,
-    title: "Module 1 : Introduction au Head Spa",
-    duration: "1h30",
-    topics: [
-      "Histoire et philosophie du Head Spa japonais",
-      "Les bienfaits thérapeutiques et esthétiques",
-      "Comprendre les attentes clients",
-      "Créer une expérience sensorielle unique",
-    ],
-  },
-  {
-    id: "module-2",
-    icon: Brain,
-    title: "Module 2 : Anatomie & Trichologie",
-    duration: "2h",
-    topics: [
-      "Anatomie du cuir chevelu et des follicules",
-      "Les différents types de cheveux et leurs besoins",
-      "Diagnostic capillaire approfondi",
-      "Pathologies courantes et solutions adaptées",
-    ],
-  },
-  {
-    id: "module-3",
-    icon: Hand,
-    title: "Module 3 : Techniques de Massage",
-    duration: "3h",
-    topics: [
-      "Les bases du Shiatsu crânien",
-      "Pressions, effleurages et pétrissages",
-      "Techniques de relaxation profonde",
-      "Protocole signature Spa Woda",
-    ],
-  },
-  {
-    id: "module-4",
-    icon: Sparkles,
-    title: "Module 4 : Rituels & Protocoles",
-    duration: "2h30",
-    topics: [
-      "Sélection et utilisation des huiles essentielles",
-      "Les outils professionnels du Head Spa",
-      "Déroulé complet d'une séance",
-      "Personnalisation selon les besoins clients",
-    ],
-  },
-  {
-    id: "module-5",
-    icon: Users,
-    title: "Module 5 : Expérience Client",
-    duration: "1h30",
-    topics: [
-      "Accueil et prise en charge du client",
-      "Communication et conseil personnalisé",
-      "Gestion des attentes et fidélisation",
-      "Créer une ambiance immersive",
-    ],
-  },
-  {
-    id: "module-6",
-    icon: Award,
-    title: "Module 6 : Certification & Pratique",
-    duration: "En présentiel",
-    topics: [
-      "Mise en situation réelle",
-      "Correction et perfectionnement des gestes",
-      "Évaluation finale",
-      "Remise du certificat Spa Woda",
-    ],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CurriculumSection = () => {
+  const { t } = useLanguage();
+
+  const modules = [
+    {
+      id: "module-1",
+      icon: BookOpen,
+      title: t("curriculum.module1.title"),
+      duration: t("curriculum.module1.duration"),
+      topics: t("curriculum.module1.topics").split(","),
+    },
+    {
+      id: "module-2",
+      icon: Brain,
+      title: t("curriculum.module2.title"),
+      duration: t("curriculum.module2.duration"),
+      topics: t("curriculum.module2.topics").split(","),
+    },
+    {
+      id: "module-3",
+      icon: Hand,
+      title: t("curriculum.module3.title"),
+      duration: t("curriculum.module3.duration"),
+      topics: t("curriculum.module3.topics").split(","),
+    },
+    {
+      id: "module-4",
+      icon: Sparkles,
+      title: t("curriculum.module4.title"),
+      duration: t("curriculum.module4.duration"),
+      topics: t("curriculum.module4.topics").split(","),
+    },
+    {
+      id: "module-5",
+      icon: Users,
+      title: t("curriculum.module5.title"),
+      duration: t("curriculum.module5.duration"),
+      topics: t("curriculum.module5.topics").split(","),
+    },
+    {
+      id: "module-6",
+      icon: Award,
+      title: t("curriculum.module6.title"),
+      duration: t("curriculum.module6.duration"),
+      topics: t("curriculum.module6.topics").split(","),
+    },
+  ];
+
   return (
     <section id="program" className="relative bg-background py-24 lg:py-32">
       {/* Background Accents */}
@@ -98,7 +71,7 @@ const CurriculumSection = () => {
             viewport={{ once: true }}
             className="mb-4 inline-block font-body text-xs uppercase tracking-[0.3em] text-gold"
           >
-            Le Programme
+            {t("curriculum.label")}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -106,7 +79,7 @@ const CurriculumSection = () => {
             viewport={{ once: true }}
             className="font-display text-3xl font-light text-foreground md:text-5xl"
           >
-            Un parcours <span className="text-gold italic">complet</span>
+            {t("curriculum.title")} <span className="text-gold italic">{t("curriculum.title.highlight")}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -115,8 +88,7 @@ const CurriculumSection = () => {
             transition={{ delay: 0.1 }}
             className="mx-auto mt-4 max-w-2xl text-muted-foreground"
           >
-            De la théorie à la pratique, maîtrisez chaque aspect du Head Spa 
-            pour offrir des expériences d'exception.
+            {t("curriculum.subtitle")}
           </motion.p>
         </div>
 
@@ -128,7 +100,7 @@ const CurriculumSection = () => {
           className="mx-auto max-w-3xl"
         >
           <Accordion type="single" collapsible className="space-y-4">
-            {modules.map((module, index) => (
+            {modules.map((module) => (
               <AccordionItem
                 key={module.id}
                 value={module.id}
@@ -144,7 +116,7 @@ const CurriculumSection = () => {
                         {module.title}
                       </h3>
                       <p className="text-xs text-muted-foreground">
-                        Durée : {module.duration}
+                        {t("curriculum.duration")} {module.duration}
                       </p>
                     </div>
                   </div>

@@ -5,21 +5,23 @@ import { z } from "zod";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Calendar, Loader2 } from "lucide-react";
-
-const contactSchema = z.object({
-  name: z.string().min(2, "Le nom doit contenir au moins 2 caractères").max(100),
-  email: z.string().email("Email invalide").max(255),
-  phone: z.string().min(10, "Numéro de téléphone invalide").max(20),
-  preference: z.enum(["online", "onsite"], {
-    required_error: "Veuillez sélectionner une préférence",
-  }),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
+
+  const contactSchema = z.object({
+    name: z.string().min(2, t("contact.name.error")).max(100),
+    email: z.string().email(t("contact.email.error")).max(255),
+    phone: z.string().min(10, t("contact.phone.error")).max(20),
+    preference: z.enum(["online", "onsite"], {
+      required_error: t("contact.preference.error"),
+    }),
+  });
+
+  type ContactFormData = z.infer<typeof contactSchema>;
 
   const {
     register,
@@ -48,8 +50,8 @@ const ContactSection = () => {
       });
 
       toast({
-        title: "Demande envoyée !",
-        description: "Nous vous recontacterons très prochainement.",
+        title: t("contact.success.title"),
+        description: t("contact.success.description"),
       });
 
       reset();
@@ -59,8 +61,8 @@ const ContactSection = () => {
       
     } catch (error) {
       toast({
-        title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer.",
+        title: t("contact.error.title"),
+        description: t("contact.error.description"),
         variant: "destructive",
       });
     } finally {
@@ -94,7 +96,7 @@ const ContactSection = () => {
               viewport={{ once: true }}
               className="mb-4 inline-block font-body text-xs uppercase tracking-[0.3em] text-gold"
             >
-              Besoin de conseils ?
+              {t("contact.label")}
             </motion.span>
             
             <motion.h2
@@ -103,7 +105,7 @@ const ContactSection = () => {
               viewport={{ once: true }}
               className="mb-4 font-display text-3xl font-light text-foreground md:text-4xl"
             >
-              Réservez un appel <span className="text-gold italic">découverte</span>
+              {t("contact.title")} <span className="text-gold italic">{t("contact.title.highlight")}</span>
             </motion.h2>
             
             <motion.p
@@ -113,8 +115,7 @@ const ContactSection = () => {
               transition={{ delay: 0.1 }}
               className="text-muted-foreground"
             >
-              Vous hésitez entre le Digital et le Présentiel ? 
-              Discutons de votre projet pour trouver la formule idéale.
+              {t("contact.subtitle")}
             </motion.p>
           </div>
 
@@ -130,12 +131,12 @@ const ContactSection = () => {
             {/* Name */}
             <div>
               <label className="mb-2 block text-sm font-medium text-foreground">
-                Votre nom
+                {t("contact.name.label")}
               </label>
               <input
                 type="text"
                 {...register("name")}
-                placeholder="Marie Dupont"
+                placeholder={t("contact.name.placeholder")}
                 className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
               />
               {errors.name && (
@@ -146,12 +147,12 @@ const ContactSection = () => {
             {/* Email */}
             <div>
               <label className="mb-2 block text-sm font-medium text-foreground">
-                Votre email
+                {t("contact.email.label")}
               </label>
               <input
                 type="email"
                 {...register("email")}
-                placeholder="marie@example.com"
+                placeholder={t("contact.email.placeholder")}
                 className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
               />
               {errors.email && (
@@ -162,12 +163,12 @@ const ContactSection = () => {
             {/* Phone */}
             <div>
               <label className="mb-2 block text-sm font-medium text-foreground">
-                Téléphone
+                {t("contact.phone.label")}
               </label>
               <input
                 type="tel"
                 {...register("phone")}
-                placeholder="+33 6 12 34 56 78"
+                placeholder={t("contact.phone.placeholder")}
                 className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
               />
               {errors.phone && (
@@ -178,15 +179,15 @@ const ContactSection = () => {
             {/* Preference */}
             <div>
               <label className="mb-2 block text-sm font-medium text-foreground">
-                Formule souhaitée
+                {t("contact.preference.label")}
               </label>
               <select
                 {...register("preference")}
                 className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
               >
-                <option value="">Sélectionnez une option</option>
-                <option value="online">Formation en ligne (190€)</option>
-                <option value="onsite">Formation en présentiel (594€)</option>
+                <option value="">{t("contact.preference.placeholder")}</option>
+                <option value="online">{t("contact.preference.online")}</option>
+                <option value="onsite">{t("contact.preference.onsite")}</option>
               </select>
               {errors.preference && (
                 <p className="mt-1 text-xs text-destructive">{errors.preference.message}</p>
@@ -202,12 +203,12 @@ const ContactSection = () => {
               {isSubmitting ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  Envoi en cours...
+                  {t("contact.submitting")}
                 </>
               ) : (
                 <>
                   <Calendar className="h-4 w-4" />
-                  Réserver mon appel
+                  {t("contact.submit")}
                 </>
               )}
             </button>

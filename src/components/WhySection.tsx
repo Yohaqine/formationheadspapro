@@ -1,39 +1,38 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Award, Heart, Users } from "lucide-react";
-
-const features = [
-  {
-    icon: TrendingUp,
-    title: "Rentabilité",
-    subtitle: "ROI Exceptionnel",
-    description:
-      "Un Head Spa se facture entre 80€ et 150€. Avec une formation à 190€, votre investissement est rentabilisé dès le 2ème client.",
-    accent: true,
-  },
-  {
-    icon: Heart,
-    title: "Expertise Japonaise",
-    subtitle: "Shiatsu & Massage",
-    description:
-      "Maîtrisez les techniques ancestrales du shiatsu crânien, combinées aux protocoles modernes de trichologie pour des résultats visibles.",
-  },
-  {
-    icon: Award,
-    title: "Certificat & Suivi",
-    subtitle: "Accompagnement Premium",
-    description:
-      "Obtenez votre certification officielle et bénéficiez d'un suivi post-formation pour perfectionner votre pratique.",
-  },
-  {
-    icon: Users,
-    title: "Communauté",
-    subtitle: "Réseau d'Experts",
-    description:
-      "Rejoignez une communauté passionnée de professionnels du bien-être et partagez vos expériences.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhySection = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: TrendingUp,
+      title: t("why.feature1.title"),
+      subtitle: t("why.feature1.subtitle"),
+      description: t("why.feature1.description"),
+      accent: true,
+    },
+    {
+      icon: Heart,
+      title: t("why.feature2.title"),
+      subtitle: t("why.feature2.subtitle"),
+      description: t("why.feature2.description"),
+    },
+    {
+      icon: Award,
+      title: t("why.feature3.title"),
+      subtitle: t("why.feature3.subtitle"),
+      description: t("why.feature3.description"),
+    },
+    {
+      icon: Users,
+      title: t("why.feature4.title"),
+      subtitle: t("why.feature4.subtitle"),
+      description: t("why.feature4.description"),
+    },
+  ];
+
   return (
     <section id="why" className="relative overflow-hidden bg-stone py-24 lg:py-32">
       {/* Background Elements */}
@@ -49,7 +48,7 @@ const WhySection = () => {
             viewport={{ once: true }}
             className="mb-4 inline-block font-body text-xs uppercase tracking-[0.3em] text-gold"
           >
-            Pourquoi Nous Choisir
+            {t("why.label")}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +56,7 @@ const WhySection = () => {
             viewport={{ once: true }}
             className="font-display text-3xl font-light text-foreground md:text-5xl"
           >
-            Une formation qui <span className="text-gold italic">transforme</span>
+            {t("why.title")} <span className="text-gold italic">{t("why.title.highlight")}</span>
           </motion.h2>
         </div>
 
@@ -125,7 +124,7 @@ const WhySection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <p className="font-display text-xl text-foreground md:text-2xl">
-                Découvrez l'univers <span className="text-gold">Spa Woda</span>
+                {t("why.video.text")} <span className="text-gold">Spa Woda</span>
               </p>
             </div>
           </div>
