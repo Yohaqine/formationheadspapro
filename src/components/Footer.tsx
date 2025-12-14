@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { MentionsLegalesModal, CGVModal } from "./LegalModals";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="relative overflow-hidden bg-stone py-16">
       {/* Decorative Top Border */}
@@ -20,7 +23,7 @@ const Footer = () => {
               Spa <span className="text-gold">Woda</span>
             </h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              L'Académie du Head Spa d'Excellence
+              {t("footer.tagline")}
             </p>
           </motion.div>
 
@@ -95,7 +98,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="animated-underline text-sm text-muted-foreground transition-colors hover:text-gold"
           >
-            Découvrir le Spa Woda →
+            {t("footer.discover")}
           </motion.a>
 
           {/* Copyright */}
@@ -107,7 +110,7 @@ const Footer = () => {
             className="text-center"
           >
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Spa Woda. Tous droits réservés.
+              © {new Date().getFullYear()} Spa Woda. {t("footer.rights")}
             </p>
             <p className="mt-1 text-xs text-muted-foreground/60">
               Lyon, France

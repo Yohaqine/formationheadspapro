@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   const scrollToProgram = () => {
     document.getElementById("program")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -51,7 +54,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="mb-4 font-body text-sm uppercase tracking-[0.3em] text-gold"
           >
-            L'Académie Spa Woda
+            {t("hero.preheadline")}
           </motion.p>
 
           {/* Main Headline */}
@@ -61,10 +64,10 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="mb-6 font-display text-4xl font-light leading-tight tracking-wide text-foreground md:text-6xl lg:text-7xl"
           >
-            Ne faites pas que des soins.
+            {t("hero.headline1")}
             <br />
             <span className="text-gold-gradient font-medium italic">
-              Créez des expériences.
+              {t("hero.headline2")}
             </span>
           </motion.h1>
 
@@ -75,7 +78,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 1.1 }}
             className="mb-12 font-body text-lg font-light text-muted-foreground md:text-xl"
           >
-            Devenez l'élite du Head Spa avec une formation d'exception
+            {t("hero.subheadline")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -91,13 +94,13 @@ const HeroSection = () => {
               rel="noopener noreferrer"
               className="btn-gold rounded-full px-8 py-4 font-body text-sm uppercase tracking-wider"
             >
-              Formation en ligne — 190€
+              {t("hero.cta.online")}
             </a>
             <button
               onClick={scrollToProgram}
               className="btn-stone rounded-full px-8 py-4 font-body text-sm uppercase tracking-wider"
             >
-              Découvrir le programme
+              {t("hero.cta.program")}
             </button>
           </motion.div>
         </motion.div>
@@ -115,7 +118,7 @@ const HeroSection = () => {
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
           >
-            <span className="text-xs uppercase tracking-widest">Découvrir</span>
+            <span className="text-xs uppercase tracking-widest">{t("hero.scroll")}</span>
             <ChevronDown className="h-5 w-5 text-gold" />
           </motion.div>
         </motion.button>

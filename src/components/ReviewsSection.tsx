@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const reviews = [
   {
@@ -28,11 +28,11 @@ const reviews = [
     text: "Magnifique moment. Yohaqîne est très professionnelle. Gestes doux et précis, pleins de conseils.",
     rating: 5,
   },
-]; 
+];
 
 const duplicatedReviews = [...reviews, ...reviews];
 
-const ReviewCard = ({ review, index }: { review: typeof reviews[0]; index: number }) => (
+const ReviewCard = ({ review, index, verifiedText }: { review: typeof reviews[0]; index: number; verifiedText: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -84,13 +84,15 @@ const ReviewCard = ({ review, index }: { review: typeof reviews[0]; index: numbe
       </div>
       <div>
         <p className="font-medium text-foreground">{review.name}</p>
-        <p className="text-xs text-muted-foreground">Client vérifié</p>
+        <p className="text-xs text-muted-foreground">{verifiedText}</p>
       </div>
     </div>
   </motion.div>
 );
 
 const ReviewsSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative overflow-hidden bg-background py-20">
       {/* Background Accent */}
@@ -105,7 +107,7 @@ const ReviewsSection = () => {
             viewport={{ once: true }}
             className="mb-4 inline-block font-body text-xs uppercase tracking-[0.3em] text-gold"
           >
-            Témoignages
+            {t("reviews.label")}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -113,7 +115,7 @@ const ReviewsSection = () => {
             viewport={{ once: true }}
             className="font-display text-3xl font-light text-foreground md:text-4xl"
           >
-            Ce qu'en disent nos <span className="text-gold">élèves</span>
+            {t("reviews.title")} <span className="text-gold">{t("reviews.title.highlight")}</span>
           </motion.h2>
         </div>
 
@@ -125,7 +127,7 @@ const ReviewsSection = () => {
                 key={`${review.name}-${index}`}
                 className="min-w-[320px] shrink-0 scroll-mx-4 md:min-w-[380px]"
               >
-                <ReviewCard review={review} index={index % reviews.length} />
+                <ReviewCard review={review} index={index % reviews.length} verifiedText={t("reviews.verified")} />
               </div>
             ))}
           </div>
@@ -144,7 +146,7 @@ const ReviewsSection = () => {
             ))}
           </div>
           <span className="font-display text-2xl text-foreground">5.0</span>
-          <span className="text-sm text-muted-foreground">sur Google</span>
+          <span className="text-sm text-muted-foreground">{t("reviews.on")}</span>
         </motion.div>
       </div>
     </section>

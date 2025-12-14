@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import portrait from "@/assets/portrait.jpeg";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const InstructorSection = () => {
-  return <section id="instructor" className="relative overflow-hidden bg-stone-gradient py-24 lg:py-32">
+  const { t } = useLanguage();
+  const credentials = t("instructor.credentials").split(",");
+
+  return (
+    <section id="instructor" className="relative overflow-hidden bg-stone-gradient py-24 lg:py-32">
       {/* Decorative Background Elements */}
       <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
       <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-water/10 blur-3xl" />
@@ -9,40 +15,35 @@ const InstructorSection = () => {
       <div className="container relative z-10 mx-auto px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Image Column - Asymmetric */}
-          <motion.div initial={{
-          opacity: 0,
-          x: -50
-        }} whileInView={{
-          opacity: 1,
-          x: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="relative">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
             {/* Main Image */}
             <div className="relative overflow-hidden rounded-2xl">
-              <img src={portrait} alt="Yohaqîne - Fondatrice de Spa Woda" className="aspect-[3/4] w-full object-cover object-top" />
+              <img
+                src={portrait}
+                alt="Yohaqîne - Fondatrice de Spa Woda"
+                className="aspect-[3/4] w-full object-cover object-top"
+              />
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             </div>
 
             {/* Floating Badge */}
-            <motion.div initial={{
-            opacity: 0,
-            scale: 0.8
-          }} whileInView={{
-            opacity: 1,
-            scale: 1
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6,
-            delay: 0.4
-          }} className="absolute -bottom-6 -right-6 glass-card rounded-xl p-6 lg:-right-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="absolute -bottom-6 -right-6 glass-card rounded-xl p-6 lg:-right-12"
+            >
               <p className="font-display text-3xl font-light text-gold">7+</p>
               <p className="text-sm text-muted-foreground">
-                Années d'expertise
+                {t("instructor.years")}
               </p>
             </motion.div>
 
@@ -51,28 +52,22 @@ const InstructorSection = () => {
           </motion.div>
 
           {/* Content Column */}
-          <motion.div initial={{
-          opacity: 0,
-          x: 50
-        }} whileInView={{
-          opacity: 1,
-          x: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="lg:pl-8">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:pl-8"
+          >
             {/* Label */}
-            <motion.span initial={{
-            opacity: 0
-          }} whileInView={{
-            opacity: 1
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: 0.3
-          }} className="mb-4 inline-block font-body text-xs uppercase tracking-[0.3em] text-gold">
-              Votre Formatrice
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="mb-4 inline-block font-body text-xs uppercase tracking-[0.3em] text-gold"
+            >
+              {t("instructor.label")}
             </motion.span>
 
             {/* Name */}
@@ -84,45 +79,43 @@ const InstructorSection = () => {
             {/* Bio */}
             <div className="space-y-4 text-muted-foreground">
               <p className="text-lg font-light leading-relaxed">
-                Fondatrice de Spa Woda et pionnière du Head Spa en France, 
-                Yohaqîne a forgé son expertise au cœur de{" "}
-                <span className="text-foreground">l'hôtellerie de luxe</span> 
-                {" "}avant de se consacrer entièrement à l'art du soin capillaire japonais.
+                {t("instructor.bio1")}{" "}
+                <span className="text-foreground">{t("instructor.bio1.highlight")}</span>{" "}
+                {t("instructor.bio1.end")}
               </p>
               <p className="leading-relaxed">
-                Sa méthode unique fusionne les techniques ancestrales du 
-                <span className="text-gold"> Shiatsu crânien</span>, la science 
-                trichologique moderne et une approche holistique du bien-être. 
-                Chaque geste est pensé pour créer une expérience sensorielle inoubliable.
+                {t("instructor.bio2.start")}
+                <span className="text-gold"> {t("instructor.bio2.highlight")}</span>
+                {t("instructor.bio2.end")}
               </p>
               <p className="leading-relaxed">
-                Plus qu'une formation, c'est une transmission : celle d'un 
-                savoir-faire d'exception et d'une philosophie où{" "}
+                {t("instructor.bio3")}{" "}
                 <span className="italic text-foreground">
-                  "chaque client devient une œuvre"
+                  {t("instructor.bio3.quote")}
                 </span>.
               </p>
             </div>
 
             {/* Credentials */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {["Shiatsu Certifié", "Trichologie", "Luxury Hospitality", "Head Spa Expert"].map((credential, index) => <motion.span key={credential} initial={{
-              opacity: 0,
-              y: 10
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: 0.5 + index * 0.1
-            }} className="rounded-full border border-border bg-secondary/50 px-4 py-2 text-xs uppercase tracking-wider text-secondary-foreground">
-                    {credential}
-                  </motion.span>)}
+              {credentials.map((credential, index) => (
+                <motion.span
+                  key={credential}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  className="rounded-full border border-border bg-secondary/50 px-4 py-2 text-xs uppercase tracking-wider text-secondary-foreground"
+                >
+                  {credential}
+                </motion.span>
+              ))}
             </div>
           </motion.div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default InstructorSection;

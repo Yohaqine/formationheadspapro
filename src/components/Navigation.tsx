@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageToggle from "./LanguageToggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,9 +18,9 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { label: "Programme", href: "#program" },
-    { label: "Tarifs", href: "#pricing" },
-    { label: "Contact", href: "#contact" },
+    { label: t("nav.program"), href: "#program" },
+    { label: t("nav.pricing"), href: "#pricing" },
+    { label: t("nav.contact"), href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -65,22 +68,26 @@ const Navigation = () => {
               onClick={() => scrollToSection("#contact")}
               className="btn-gold rounded-full px-6 py-2 text-xs uppercase tracking-wider"
             >
-              S'inscrire
+              {t("nav.signup")}
             </button>
+            <LanguageToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 md:hidden"
-            aria-label="Menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-5 w-5 text-foreground" />
-            ) : (
-              <Menu className="h-5 w-5 text-foreground" />
-            )}
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            <LanguageToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50"
+              aria-label="Menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-5 w-5 text-foreground" />
+              ) : (
+                <Menu className="h-5 w-5 text-foreground" />
+              )}
+            </button>
+          </div>
         </div>
       </motion.nav>
 
