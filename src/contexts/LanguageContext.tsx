@@ -214,8 +214,7 @@ const translations = {
     // Curriculum
     "curriculum.label": "The Program",
     "curriculum.title": "A",
-    "curriculum.title.highlight": "complete",
-    "curriculum.title.end": " journey",
+    "curriculum.title.highlight": "complete journey",
     "curriculum.subtitle":
       "From theory to practice, master every aspect of Head Spa to deliver exceptional experiences.",
     "curriculum.duration": "Duration:",
