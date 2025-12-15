@@ -98,7 +98,7 @@ const translations = {
     // Reviews
     "reviews.label": "Témoignages",
     "reviews.title": "Ce qu'en disent nos",
-    "reviews.title.highlight": "élèves disent",
+    "reviews.title.highlight": "élèves",
     "reviews.verified": "Client vérifié",
     "reviews.on": "sur Google",
 
