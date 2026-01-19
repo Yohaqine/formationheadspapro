@@ -88,14 +88,12 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 1.3 }}
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            <a
-              href="https://www.spawoda.fr/order-form/eyJmIjoxNjQxNDR9/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="btn-gold rounded-full px-8 py-4 font-body text-sm uppercase tracking-wider"
             >
-              {t("hero.cta.online")}
-            </a>
+              {t("hero.cta.apply")}
+            </button>
             <button
               onClick={scrollToProgram}
               className="btn-stone rounded-full px-8 py-4 font-body text-sm uppercase tracking-wider"

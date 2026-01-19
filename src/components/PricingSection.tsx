@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Monitor, MapPin, Sparkles } from "lucide-react";
+import { Check, User, Users, UsersRound, MapPin, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PricingSection = () => {
@@ -17,8 +17,7 @@ const PricingSection = () => {
     });
   };
 
-  const digitalFeatures = t("pricing.digital.features").split(",");
-  const immersionFeatures = t("pricing.immersion.features").split(",");
+  const features = t("pricing.features").split(",");
 
   return (
     <section id="pricing" className="relative overflow-hidden bg-stone py-24 lg:py-32">
@@ -28,7 +27,7 @@ const PricingSection = () => {
 
       <div className="container relative z-10 mx-auto px-6">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-8 text-center">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -47,9 +46,22 @@ const PricingSection = () => {
           </motion.h2>
         </div>
 
+        {/* Duration Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12 flex justify-center"
+        >
+          <div className="inline-flex items-center gap-2 rounded-full bg-gold/20 px-6 py-3">
+            <MapPin className="h-5 w-5 text-gold" />
+            <span className="font-body text-sm font-medium text-gold">{t("pricing.duration")}</span>
+          </div>
+        </motion.div>
+
         {/* Pricing Cards */}
-        <div className="mx-auto grid max-w-4xl gap-8 lg:grid-cols-2">
-          {/* Digital Option */}
+        <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-3">
+          {/* Solo Option */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -57,37 +69,26 @@ const PricingSection = () => {
             transition={{ delay: 0.1 }}
             className="glass-card-light group relative overflow-hidden rounded-2xl border border-clay-dark/20 bg-clay/5 p-8"
           >
-            {/* Discount Badge */}
-            <div className="absolute left-4 top-4">
-              <span className="inline-flex items-center gap-1 rounded-full bg-gold/20 px-3 py-1 font-bold text-gold-light text-base">
-                -37%
-              </span>
-            </div>
-
             {/* Header */}
-            <div className="mb-6 mt-6 flex items-center gap-3">
+            <div className="mb-6 flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clay-dark/10">
-                <Monitor className="h-6 w-6 text-clay-dark" />
+                <User className="h-6 w-6 text-clay-dark" />
               </div>
               <div>
-                <h3 className="font-display text-2xl text-foreground">{t("pricing.digital.name")}</h3>
-                <p className="text-sm text-muted-foreground">{t("pricing.digital.subtitle")}</p>
+                <h3 className="font-display text-2xl text-foreground">{t("pricing.solo.name")}</h3>
+                <p className="text-sm text-muted-foreground">{t("pricing.solo.subtitle")}</p>
               </div>
             </div>
 
             {/* Price */}
-            <div className="mb-2">
-              <span className="text-lg text-muted-foreground line-through">300€</span>
-            </div>
             <div className="mb-6 flex items-baseline gap-2">
-              <span className="font-display text-5xl font-light text-foreground">190€</span>
-              <span className="text-muted-foreground">{t("pricing.digital.payment")}</span>
+              <span className="font-display text-5xl font-light text-foreground">{t("pricing.solo.price")}</span>
+              <span className="text-muted-foreground">{t("pricing.solo.payment")}</span>
             </div>
-            <p className="mb-6 text-xs text-gold">{t("pricing.digital.offer")}</p>
 
             {/* Features */}
             <ul className="mb-8 space-y-3">
-              {digitalFeatures.map((feature, index) => (
+              {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3 text-sm text-foreground/80">
                   <Check className="h-4 w-4 shrink-0 text-gold" />
                   {feature}
@@ -95,21 +96,27 @@ const PricingSection = () => {
               ))}
             </ul>
 
-            {/* CTA */}
-            <a
-              href="https://www.spawoda.fr/order-form/eyJmIjoxNjQxNDR9/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold block w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
-            >
-              {t("pricing.digital.cta")}
-            </a>
+            {/* CTAs */}
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={scrollToCurriculum}
+                className="btn-stone w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+              >
+                {t("pricing.cta.program")}
+              </button>
+              <button
+                onClick={scrollToContact}
+                className="btn-gold w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+              >
+                {t("pricing.cta.apply")}
+              </button>
+            </div>
 
             {/* Decorative */}
             <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-clay-dark/5 transition-transform duration-500 group-hover:-translate-y-4 group-hover:translate-x-4" />
           </motion.div>
 
-          {/* Immersion Option */}
+          {/* Group 2-3 Option - Recommended */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,11 +124,8 @@ const PricingSection = () => {
             transition={{ delay: 0.2 }}
             className="group relative overflow-hidden rounded-2xl border-2 border-gold/30 bg-gradient-to-br from-stone-light to-stone p-8"
           >
-            {/* Badges */}
-            <div className="absolute left-4 right-4 top-4 flex justify-between">
-              <span className="inline-flex items-center gap-1 rounded-full bg-gold/20 px-3 py-1 font-bold text-gold-light text-base">
-                -41%
-              </span>
+            {/* Recommended Badge */}
+            <div className="absolute right-4 top-4">
               <span className="inline-flex items-center gap-1 rounded-full bg-gold/20 px-3 py-1 text-xs font-medium text-gold">
                 <Sparkles className="h-3 w-3" />
                 {t("pricing.recommended")}
@@ -129,29 +133,25 @@ const PricingSection = () => {
             </div>
 
             {/* Header */}
-            <div className="mb-6 mt-6 flex items-center gap-3">
+            <div className="mb-6 mt-4 flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/20">
-                <MapPin className="h-6 w-6 text-gold" />
+                <Users className="h-6 w-6 text-gold" />
               </div>
               <div>
-                <h3 className="font-display text-2xl text-foreground">{t("pricing.immersion.name")}</h3>
-                <p className="text-sm text-muted-foreground">{t("pricing.immersion.subtitle")}</p>
+                <h3 className="font-display text-2xl text-foreground">{t("pricing.group23.name")}</h3>
+                <p className="text-sm text-muted-foreground">{t("pricing.group23.subtitle")}</p>
               </div>
             </div>
 
             {/* Price */}
-            <div className="mb-2">
-              <span className="text-lg text-muted-foreground line-through">1000€</span>
-            </div>
             <div className="mb-6 flex items-baseline gap-2">
-              <span className="font-display text-5xl font-light text-gold">594€</span>
-              <span className="text-muted-foreground">{t("pricing.immersion.payment")}</span>
+              <span className="font-display text-5xl font-light text-gold">{t("pricing.group23.price")}</span>
+              <span className="text-muted-foreground">{t("pricing.group23.payment")}</span>
             </div>
-            <p className="mb-6 text-xs text-gold">{t("pricing.immersion.offer")}</p>
 
             {/* Features */}
             <ul className="mb-8 space-y-3">
-              {immersionFeatures.map((feature, index) => (
+              {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3 text-sm text-foreground">
                   <Check className="h-4 w-4 shrink-0 text-gold" />
                   {feature}
@@ -165,20 +165,89 @@ const PricingSection = () => {
                 onClick={scrollToCurriculum}
                 className="btn-stone w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
               >
-                {t("pricing.immersion.cta.program")}
+                {t("pricing.cta.program")}
               </button>
               <button
                 onClick={scrollToContact}
                 className="btn-gold w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
               >
-                {t("pricing.immersion.cta.apply")}
+                {t("pricing.cta.apply")}
               </button>
             </div>
 
             {/* Decorative */}
             <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-gold/10 transition-transform duration-500 group-hover:-translate-x-4 group-hover:translate-y-4" />
           </motion.div>
+
+          {/* Group 4 Option */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="glass-card-light group relative overflow-hidden rounded-2xl border border-clay-dark/20 bg-clay/5 p-8"
+          >
+            {/* Header */}
+            <div className="mb-6 flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clay-dark/10">
+                <UsersRound className="h-6 w-6 text-clay-dark" />
+              </div>
+              <div>
+                <h3 className="font-display text-2xl text-foreground">{t("pricing.group4.name")}</h3>
+                <p className="text-sm text-muted-foreground">{t("pricing.group4.subtitle")}</p>
+              </div>
+            </div>
+
+            {/* Price */}
+            <div className="mb-6 flex items-baseline gap-2">
+              <span className="font-display text-5xl font-light text-foreground">{t("pricing.group4.price")}</span>
+              <span className="text-muted-foreground">{t("pricing.group4.payment")}</span>
+            </div>
+
+            {/* Features */}
+            <ul className="mb-8 space-y-3">
+              {features.map((feature, index) => (
+                <li key={index} className="flex items-center gap-3 text-sm text-foreground/80">
+                  <Check className="h-4 w-4 shrink-0 text-gold" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            {/* CTAs */}
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={scrollToCurriculum}
+                className="btn-stone w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+              >
+                {t("pricing.cta.program")}
+              </button>
+              <button
+                onClick={scrollToContact}
+                className="btn-gold w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+              >
+                {t("pricing.cta.apply")}
+              </button>
+            </div>
+
+            {/* Decorative */}
+            <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-clay-dark/5 transition-transform duration-500 group-hover:-translate-y-4 group-hover:translate-x-4" />
+          </motion.div>
         </div>
+
+        {/* Travel Notice */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mt-12 text-center"
+        >
+          <p className="inline-flex items-center gap-2 text-sm text-muted-foreground italic">
+            <MapPin className="h-4 w-4 text-gold" />
+            {t("pricing.travel")}
+          </p>
+        </motion.div>
       </div>
     </section>
   );
