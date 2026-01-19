@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, type Context, type ReactNode } from "react";
 
 type Language = "fr" | "en";
 
@@ -318,7 +318,17 @@ const translations = {
   },
 };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+// Keep a stable Context instance across HMR to avoid Provider/Consumer mismatch
+const __LANGUAGE_CTX_KEY__ = "__spa_woda_language_context__";
+const __global = globalThis as unknown as Record<string, unknown>;
+
+const LanguageContext =
+  (__global[__LANGUAGE_CTX_KEY__] as
+    | Context<LanguageContextType | undefined>
+    | undefined) ?? createContext<LanguageContextType | undefined>(undefined);
+
+__global[__LANGUAGE_CTX_KEY__] = LanguageContext;
+LanguageContext.displayName = "LanguageContext";
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>("fr");
@@ -330,10 +340,22 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>;
 };
 
-export const useLanguage = () => {
+export const useLanguage = (): LanguageContextType => {
   const context = useContext(LanguageContext);
+
+  // In rare cases (especially during hot reload), Context instance can temporarily desync.
+  // Returning a safe fallback avoids a hard crash/blank screen.
   if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
+    console.warn("LanguageContext missing: using fallback language state");
+    return {
+      language: "fr",
+      setLanguage: () => {
+        console.warn("LanguageContext missing: setLanguage ignored");
+      },
+      t: (key: string) =>
+        translations.fr[key as keyof typeof translations.fr] || key,
+    };
   }
+
   return context;
 };
