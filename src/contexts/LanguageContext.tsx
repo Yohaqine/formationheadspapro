@@ -120,7 +120,7 @@ const translations = {
     "pricing.group4.price": "600€",
     "pricing.group4.payment": "par personne",
     "pricing.features":
-      "2 jours de formation intensive,Pratique sur modèles réels,Correction personnalisée,Certificat Spa Woda,Suivi post-formation illimité",
+      "2 jours de formation intensive,Pratique sur modèles réels,Correction personnalisée,Certificat Head Spa,Suivi post-formation illimité",
     "pricing.cta.program": "Voir le programme",
     "pricing.cta.apply": "Candidater",
     "pricing.recommended": "Meilleur rapport qualité/prix",
@@ -130,8 +130,7 @@ const translations = {
     "contact.label": "Réserver votre formation",
     "contact.title": "Appelez-moi pour discuter",
     "contact.title.highlight": "de votre projet",
-    "contact.subtitle":
-      "Je suis disponible pour répondre à toutes vos questions.",
+    "contact.subtitle": "Je suis disponible pour répondre à toutes vos questions.",
     "contact.call": "Appeler maintenant",
     "contact.name.label": "Votre nom",
     "contact.name.placeholder": "Marie Dupont",
@@ -273,7 +272,7 @@ const translations = {
     "pricing.group4.price": "€600",
     "pricing.group4.payment": "per person",
     "pricing.features":
-      "2 days of intensive training,Practice on real models,Personalized feedback,Spa Woda certificate,Unlimited post-training support",
+      "2 days of intensive training,Practice on real models,Personalized feedback,Head Spa certificate,Unlimited post-training support",
     "pricing.cta.program": "See the program",
     "pricing.cta.apply": "Apply",
     "pricing.recommended": "Best value",
@@ -323,9 +322,8 @@ const __LANGUAGE_CTX_KEY__ = "__spa_woda_language_context__";
 const __global = globalThis as unknown as Record<string, unknown>;
 
 const LanguageContext =
-  (__global[__LANGUAGE_CTX_KEY__] as
-    | Context<LanguageContextType | undefined>
-    | undefined) ?? createContext<LanguageContextType | undefined>(undefined);
+  (__global[__LANGUAGE_CTX_KEY__] as Context<LanguageContextType | undefined> | undefined) ??
+  createContext<LanguageContextType | undefined>(undefined);
 
 __global[__LANGUAGE_CTX_KEY__] = LanguageContext;
 LanguageContext.displayName = "LanguageContext";
@@ -352,8 +350,7 @@ export const useLanguage = (): LanguageContextType => {
       setLanguage: () => {
         console.warn("LanguageContext missing: setLanguage ignored");
       },
-      t: (key: string) =>
-        translations.fr[key as keyof typeof translations.fr] || key,
+      t: (key: string) => translations.fr[key as keyof typeof translations.fr] || key,
     };
   }
 
