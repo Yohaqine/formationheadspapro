@@ -240,12 +240,14 @@ const PricingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-12 text-center"
+          className="mt-16 text-center"
         >
-          <p className="inline-flex items-center gap-2 text-sm text-muted-foreground italic">
-            <MapPin className="h-4 w-4 text-gold" />
-            {t("pricing.travel")}
-          </p>
+          <div className="inline-flex items-center gap-3 rounded-full border border-gold/30 bg-gold/10 px-6 py-4">
+            <MapPin className="h-5 w-5 text-gold" />
+            <p className="text-base font-medium text-foreground">
+              {t("pricing.travel")}
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
