@@ -128,10 +128,11 @@ const translations = {
 
     // Contact
     "contact.label": "Besoin de conseils ?",
-    "contact.title": "Réservez un appel",
-    "contact.title.highlight": "découverte",
+    "contact.title": "Appelez-moi pour discuter",
+    "contact.title.highlight": "de votre projet",
     "contact.subtitle":
-      "Discutons de votre projet pour trouver la formule idéale.",
+      "Je suis disponible pour répondre à toutes vos questions.",
+    "contact.call": "Appeler maintenant",
     "contact.name.label": "Votre nom",
     "contact.name.placeholder": "Marie Dupont",
     "contact.name.error": "Le nom doit contenir au moins 2 caractères",
@@ -280,9 +281,10 @@ const translations = {
 
     // Contact
     "contact.label": "Need advice?",
-    "contact.title": "Book a",
-    "contact.title.highlight": "discovery call",
-    "contact.subtitle": "Let's discuss your project to find the ideal formula.",
+    "contact.title": "Call me to discuss",
+    "contact.title.highlight": "your project",
+    "contact.subtitle": "I'm available to answer all your questions.",
+    "contact.call": "Call now",
     "contact.name.label": "Your name",
     "contact.name.placeholder": "Jane Smith",
     "contact.name.error": "Name must contain at least 2 characters",
