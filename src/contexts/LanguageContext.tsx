@@ -127,7 +127,7 @@ const translations = {
     "pricing.travel": "Déplacement possible dans toute la France et la Suisse sur devis et sur demande.",
 
     // Contact
-    "contact.label": "Besoin de conseils ?",
+    "contact.label": "Réserver votre formation",
     "contact.title": "Appelez-moi pour discuter",
     "contact.title.highlight": "de votre projet",
     "contact.subtitle":
@@ -280,7 +280,7 @@ const translations = {
     "pricing.travel": "Travel available throughout France and Switzerland upon request and quote.",
 
     // Contact
-    "contact.label": "Need advice?",
+    "contact.label": "Book your training",
     "contact.title": "Call me to discuss",
     "contact.title.highlight": "your project",
     "contact.subtitle": "I'm available to answer all your questions.",
