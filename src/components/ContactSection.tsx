@@ -16,7 +16,7 @@ const ContactSection = () => {
     name: z.string().min(2, t("contact.name.error")).max(100),
     email: z.string().email(t("contact.email.error")).max(255),
     phone: z.string().min(10, t("contact.phone.error")).max(20),
-    preference: z.enum(["online", "onsite"], {
+    preference: z.enum(["solo", "group23", "group4"], {
       required_error: t("contact.preference.error"),
     }),
   });
@@ -186,8 +186,9 @@ const ContactSection = () => {
                 className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
               >
                 <option value="">{t("contact.preference.placeholder")}</option>
-                <option value="online">{t("contact.preference.online")}</option>
-                <option value="onsite">{t("contact.preference.onsite")}</option>
+                <option value="solo">{t("contact.preference.solo")}</option>
+                <option value="group23">{t("contact.preference.group23")}</option>
+                <option value="group4">{t("contact.preference.group4")}</option>
               </select>
               {errors.preference && (
                 <p className="mt-1 text-xs text-destructive">{errors.preference.message}</p>
