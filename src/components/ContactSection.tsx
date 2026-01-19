@@ -2,20 +2,46 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Calendar, Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+// Rate limiting constants
+const RATE_LIMIT_WINDOW_MS = 60000; // 1 minute
+const MAX_SUBMISSIONS_PER_WINDOW = 2;
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const { t } = useLanguage();
+  
+  // Rate limiting state
+  const submissionTimestamps = useRef<number[]>([]);
+  
+  // Honeypot field state (should remain empty)
+  const [honeypot, setHoneypot] = useState("");
 
+  // Enhanced validation schema with stricter rules
   const contactSchema = z.object({
-    name: z.string().min(2, t("contact.name.error")).max(100),
-    email: z.string().email(t("contact.email.error")).max(255),
-    phone: z.string().min(10, t("contact.phone.error")).max(20),
+    name: z
+      .string()
+      .trim()
+      .min(2, t("contact.name.error"))
+      .max(100, t("contact.name.error"))
+      .regex(/^[a-zA-ZÀ-ÿ\s'-]+$/, t("contact.name.error")), // Only letters, spaces, hyphens, apostrophes
+    email: z
+      .string()
+      .trim()
+      .email(t("contact.email.error"))
+      .max(255, t("contact.email.error"))
+      .toLowerCase(),
+    phone: z
+      .string()
+      .trim()
+      .min(10, t("contact.phone.error"))
+      .max(20, t("contact.phone.error"))
+      .regex(/^[+]?[\d\s()-]+$/, t("contact.phone.error")), // Only valid phone characters
     preference: z.enum(["solo", "group23", "group4"], {
       required_error: t("contact.preference.error"),
     }),
@@ -32,21 +58,61 @@ const ContactSection = () => {
     resolver: zodResolver(contactSchema),
   });
 
+  // Check rate limiting
+  const isRateLimited = useCallback(() => {
+    const now = Date.now();
+    // Clean old timestamps outside the window
+    submissionTimestamps.current = submissionTimestamps.current.filter(
+      (timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS
+    );
+    return submissionTimestamps.current.length >= MAX_SUBMISSIONS_PER_WINDOW;
+  }, []);
+
   const onSubmit = async (data: ContactFormData) => {
+    // Check honeypot - if filled, it's likely a bot
+    if (honeypot) {
+      // Silently "succeed" to not alert bots
+      toast({
+        title: t("contact.success.title"),
+        description: t("contact.success.description"),
+      });
+      reset();
+      return;
+    }
+
+    // Check rate limiting
+    if (isRateLimited()) {
+      toast({
+        title: t("contact.error.title"),
+        description: t("contact.ratelimit.error"),
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      // Record this submission attempt
+      submissionTimestamps.current.push(Date.now());
+
+      // Sanitize data before sending
+      const sanitizedData = {
+        name: data.name.trim().slice(0, 100),
+        email: data.email.trim().toLowerCase().slice(0, 255),
+        phone: data.phone.trim().slice(0, 20),
+        preference: data.preference,
+        timestamp: new Date().toISOString(),
+        source: "School Woda Landing Page",
+      };
+
       await fetch("https://hooks.zapier.com/hooks/catch/25695252/ufps8ng/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         mode: "no-cors",
-        body: JSON.stringify({
-          ...data,
-          timestamp: new Date().toISOString(),
-          source: "School Woda Landing Page",
-        }),
+        body: JSON.stringify(sanitizedData),
       });
 
       toast({
@@ -55,6 +121,7 @@ const ContactSection = () => {
       });
 
       reset();
+      setHoneypot("");
 
       // Redirect to Calendly after successful submission
       window.open("https://calendly.com/yohaqine-chopin/30min?month=2025-12", "_blank");
@@ -128,6 +195,20 @@ const ContactSection = () => {
             onSubmit={handleSubmit(onSubmit)}
             className="glass-card space-y-6 rounded-2xl p-8"
           >
+            {/* Honeypot field - hidden from users, catches bots */}
+            <div className="absolute left-[-9999px] opacity-0" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
+
             {/* Name */}
             <div>
               <label className="mb-2 block text-sm font-medium text-foreground">
@@ -137,6 +218,7 @@ const ContactSection = () => {
                 type="text"
                 {...register("name")}
                 placeholder={t("contact.name.placeholder")}
+                maxLength={100}
                 className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
               />
               {errors.name && (
@@ -153,6 +235,7 @@ const ContactSection = () => {
                 type="email"
                 {...register("email")}
                 placeholder={t("contact.email.placeholder")}
+                maxLength={255}
                 className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
               />
               {errors.email && (
@@ -169,6 +252,7 @@ const ContactSection = () => {
                 type="tel"
                 {...register("phone")}
                 placeholder={t("contact.phone.placeholder")}
+                maxLength={20}
                 className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
               />
               {errors.phone && (

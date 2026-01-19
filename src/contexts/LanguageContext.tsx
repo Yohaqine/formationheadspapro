@@ -153,6 +153,7 @@ const translations = {
     "contact.success.description": "Nous vous recontacterons très prochainement.",
     "contact.error.title": "Erreur",
     "contact.error.description": "Une erreur est survenue. Veuillez réessayer.",
+    "contact.ratelimit.error": "Trop de tentatives. Veuillez patienter une minute.",
 
     // Footer
     "footer.tagline": "L'Académie du Head Spa d'Excellence",
@@ -303,6 +304,7 @@ const translations = {
     "contact.success.description": "We will contact you very soon.",
     "contact.error.title": "Error",
     "contact.error.description": "An error occurred. Please try again.",
+    "contact.ratelimit.error": "Too many attempts. Please wait a minute.",
 
     // Footer
     "footer.tagline": "The Academy of Head Spa Excellence",
