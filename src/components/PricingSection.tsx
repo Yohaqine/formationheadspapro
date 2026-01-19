@@ -116,12 +116,66 @@ const PricingSection = () => {
             <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-clay-dark/5 transition-transform duration-500 group-hover:-translate-y-4 group-hover:translate-x-4" />
           </motion.div>
 
-          {/* Group 2-3 Option - Recommended */}
+          {/* Group 2-3 Option */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
+            className="glass-card-light group relative overflow-hidden rounded-2xl border border-clay-dark/20 bg-clay/5 p-8"
+          >
+            {/* Header */}
+            <div className="mb-6 flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clay-dark/10">
+                <Users className="h-6 w-6 text-clay-dark" />
+              </div>
+              <div>
+                <h3 className="font-display text-2xl text-foreground">{t("pricing.group23.name")}</h3>
+                <p className="text-sm text-muted-foreground">{t("pricing.group23.subtitle")}</p>
+              </div>
+            </div>
+
+            {/* Price */}
+            <div className="mb-6 flex items-baseline gap-2">
+              <span className="font-display text-5xl font-light text-foreground">{t("pricing.group23.price")}</span>
+              <span className="text-muted-foreground">{t("pricing.group23.payment")}</span>
+            </div>
+            {/* Features */}
+            <ul className="mb-8 space-y-3">
+              {features.map((feature, index) => (
+                <li key={index} className="flex items-center gap-3 text-sm text-foreground/80">
+                  <Check className="h-4 w-4 shrink-0 text-gold" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            {/* CTAs */}
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={scrollToCurriculum}
+                className="btn-stone w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+              >
+                {t("pricing.cta.program")}
+              </button>
+              <button
+                onClick={scrollToContact}
+                className="btn-gold w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+              >
+                {t("pricing.cta.apply")}
+              </button>
+            </div>
+
+            {/* Decorative */}
+            <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-clay-dark/5 transition-transform duration-500 group-hover:-translate-y-4 group-hover:translate-x-4" />
+          </motion.div>
+
+          {/* Group 4 Option - Recommended */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
             className="group relative overflow-hidden rounded-2xl border-2 border-gold/30 bg-gradient-to-br from-stone-light to-stone p-8"
           >
             {/* Recommended Badge */}
@@ -135,18 +189,18 @@ const PricingSection = () => {
             {/* Header */}
             <div className="mb-6 mt-4 flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/20">
-                <Users className="h-6 w-6 text-gold" />
+                <UsersRound className="h-6 w-6 text-gold" />
               </div>
               <div>
-                <h3 className="font-display text-2xl text-foreground">{t("pricing.group23.name")}</h3>
-                <p className="text-sm text-muted-foreground">{t("pricing.group23.subtitle")}</p>
+                <h3 className="font-display text-2xl text-foreground">{t("pricing.group4.name")}</h3>
+                <p className="text-sm text-muted-foreground">{t("pricing.group4.subtitle")}</p>
               </div>
             </div>
 
             {/* Price */}
             <div className="mb-6 flex items-baseline gap-2">
-              <span className="font-display text-5xl font-light text-gold">{t("pricing.group23.price")}</span>
-              <span className="text-muted-foreground">{t("pricing.group23.payment")}</span>
+              <span className="font-display text-5xl font-light text-gold">{t("pricing.group4.price")}</span>
+              <span className="text-muted-foreground">{t("pricing.group4.payment")}</span>
             </div>
 
             {/* Features */}
@@ -177,61 +231,6 @@ const PricingSection = () => {
 
             {/* Decorative */}
             <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-gold/10 transition-transform duration-500 group-hover:-translate-x-4 group-hover:translate-y-4" />
-          </motion.div>
-
-          {/* Group 4 Option */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="glass-card-light group relative overflow-hidden rounded-2xl border border-clay-dark/20 bg-clay/5 p-8"
-          >
-            {/* Header */}
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clay-dark/10">
-                <UsersRound className="h-6 w-6 text-clay-dark" />
-              </div>
-              <div>
-                <h3 className="font-display text-2xl text-foreground">{t("pricing.group4.name")}</h3>
-                <p className="text-sm text-muted-foreground">{t("pricing.group4.subtitle")}</p>
-              </div>
-            </div>
-
-            {/* Price */}
-            <div className="mb-6 flex items-baseline gap-2">
-              <span className="font-display text-5xl font-light text-foreground">{t("pricing.group4.price")}</span>
-              <span className="text-muted-foreground">{t("pricing.group4.payment")}</span>
-            </div>
-
-            {/* Features */}
-            <ul className="mb-8 space-y-3">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-3 text-sm text-foreground/80">
-                  <Check className="h-4 w-4 shrink-0 text-gold" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-
-            {/* CTAs */}
-            <div className="flex flex-col gap-3">
-              <button
-                onClick={scrollToCurriculum}
-                className="btn-stone w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
-              >
-                {t("pricing.cta.program")}
-              </button>
-              <button
-                onClick={scrollToContact}
-                className="btn-gold w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
-              >
-                {t("pricing.cta.apply")}
-              </button>
-            </div>
-
-            {/* Decorative */}
-            <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-clay-dark/5 transition-transform duration-500 group-hover:-translate-y-4 group-hover:translate-x-4" />
           </motion.div>
         </div>
 
