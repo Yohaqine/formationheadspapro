@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PHONE_NUMBER = "+33 6 66 11 17 26";
 const PHONE_NUMBER_RAW = "33666111726";
-const WHATSAPP_URL = `https://wa.me/${PHONE_NUMBER_RAW}`;
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -79,28 +78,14 @@ const ContactSection = () => {
               </a>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              {/* Call Button */}
-              <a
-                href={`tel:+${PHONE_NUMBER_RAW}`}
-                className="btn-gold inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 font-body text-sm uppercase tracking-wider"
-              >
-                <Phone className="h-5 w-5" />
-                {t("contact.call")}
-              </a>
-
-              {/* WhatsApp Button */}
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 rounded-full border-2 border-[#25D366] bg-[#25D366]/10 px-8 py-4 font-body text-sm uppercase tracking-wider text-[#25D366] transition-all hover:bg-[#25D366] hover:text-white"
-              >
-                <MessageCircle className="h-5 w-5" />
-                WhatsApp
-              </a>
-            </div>
+            {/* Call Button */}
+            <a
+              href={`tel:+${PHONE_NUMBER_RAW}`}
+              className="btn-gold inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 font-body text-sm uppercase tracking-wider"
+            >
+              <Phone className="h-5 w-5" />
+              {t("contact.call")}
+            </a>
           </motion.div>
         </div>
       </div>
