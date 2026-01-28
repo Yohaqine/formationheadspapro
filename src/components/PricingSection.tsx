@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, User, Users, UsersRound, MapPin, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import klarnaLogo from "@/assets/klarna-logo.webp";
 
 const PricingSection = () => {
   const { t } = useLanguage();
@@ -233,6 +234,24 @@ const PricingSection = () => {
             <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-gold/10 transition-transform duration-500 group-hover:-translate-x-4 group-hover:translate-y-4" />
           </motion.div>
         </div>
+
+        {/* Klarna Payment Notice */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.35 }}
+          className="mt-10 flex items-center justify-center gap-3"
+        >
+          <span className="font-body text-base font-medium text-foreground">
+            Payer en 3 fois avec Klarna
+          </span>
+          <img
+            src={klarnaLogo}
+            alt="Klarna"
+            className="h-8 object-contain"
+          />
+        </motion.div>
 
         {/* Travel Notice */}
         <motion.div
