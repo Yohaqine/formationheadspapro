@@ -101,6 +101,8 @@ const translations = {
     "reviews.title.highlight": "élèves",
     "reviews.verified": "Client vérifié",
     "reviews.on": "sur Google",
+    "reviews.gallery.title": "Nos élèves",
+    "reviews.gallery.highlight": "certifiés",
 
     // Pricing
     "pricing.label": "Votre Formation",
@@ -253,6 +255,8 @@ const translations = {
     "reviews.title.highlight": "students say",
     "reviews.verified": "Verified client",
     "reviews.on": "on Google",
+    "reviews.gallery.title": "Our",
+    "reviews.gallery.highlight": "certified graduates",
 
     // Pricing
     "pricing.label": "Your Training",
