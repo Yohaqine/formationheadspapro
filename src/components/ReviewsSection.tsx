@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import TraineeGallery from "./TraineeGallery";
 
 const reviews = [
   {
@@ -148,6 +149,9 @@ const ReviewsSection = () => {
           <span className="font-display text-2xl text-foreground">5.0</span>
           <span className="text-sm text-muted-foreground">{t("reviews.on")}</span>
         </motion.div>
+
+        {/* Trainee Photos Gallery */}
+        <TraineeGallery />
       </div>
     </section>
   );
