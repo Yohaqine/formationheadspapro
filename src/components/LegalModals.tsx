@@ -187,9 +187,7 @@ export const CGVModal = () => (
 
           <section>
             <h3 className="font-semibold text-foreground mb-2">6. Droit de rétractation</h3>
-            <p>Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation ne s'applique pas à la fourniture de contenus numériques lorsqu'ils sont accessibles immédiatement après l'achat.</p>
-            <p className="mt-2 font-medium text-foreground">➡️ Ainsi, toute formation achetée, dont l'accès a été ouvert, est considérée comme consommée et ne peut faire l'objet d'un remboursement.</p>
-            <p className="mt-2">Avant tout achat, l'acheteur est invité à lire attentivement la fiche descriptive de la formation, qui détaille de manière transparente les modules, objectifs et thématiques abordées.</p>
+            <p>Le délai d'annulation gratuit expire 14 jours calendaires avant le premier jour de la formation. Au-delà de cette date, le stagiaire est tenu de régler la formation dans son intégralité, avec la possibilité d'un report à une session ultérieure.</p>
           </section>
 
           <section>
