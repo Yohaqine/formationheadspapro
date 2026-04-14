@@ -61,14 +61,14 @@ const PricingSection = () => {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-3">
+        <div className="mx-auto flex max-w-5xl justify-center gap-6">
           {/* Solo Option */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="glass-card-light group relative overflow-hidden rounded-2xl border border-clay-dark/20 bg-clay/5 p-8"
+            className="glass-card-light group relative w-full max-w-md overflow-hidden rounded-2xl border border-clay-dark/20 bg-clay/5 p-8"
           >
             {/* Header */}
             <div className="mb-6 flex items-center gap-3">
