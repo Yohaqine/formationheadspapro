@@ -29,10 +29,10 @@ const translations = {
     "why.label": "Pourquoi Nous Choisir",
     "why.title": "Une formation qui",
     "why.title.highlight": "transforme",
-    "why.feature1.title": "Rentabilité",
-    "why.feature1.subtitle": "ROI Exceptionnel",
+    "why.feature1.title": "Aucun prérequis",
+    "why.feature1.subtitle": "Accessible à tous",
     "why.feature1.description":
-      "Un Head Spa se facture entre 80€ et 150€. Avec une formation à 190€, votre investissement est rentabilisé dès le 2ème client.",
+      "Que vous soyez débutant(e), professionnel(le) de la beauté, du bien être, de la coiffure ou en reconversion professionnelle",
     "why.feature2.title": "Expertise Japonaise",
     "why.feature2.subtitle": "Shiatsu & Massage",
     "why.feature2.description":
