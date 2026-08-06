@@ -104,7 +104,7 @@ const translations = {
     "reviews.gallery.title": "Nos élèves",
     "reviews.gallery.highlight": "certifiés",
 
-    //Reviews
+   //Reviews
     "reviews.label": "Partenaire",
     "reviews.title":"Le meilleur",
     "reviews.title.highlight": "fournisseur"
