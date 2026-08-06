@@ -104,11 +104,12 @@ const translations = {
     "reviews.gallery.title": "Nos élèves",
     "reviews.gallery.highlight": "certifiés",
 
-   //Reviews
-    "reviews.label": "Partenaire",
-    "reviews.title":"Le meilleur",
-    "reviews.title.highlight": "fournisseur"
-   "Head Spa Officiel" ( https://headspa-officiel.com/?bg_ref=kgnuknJTzz)
+   //Partener
+    "partner.label": "Partenaire",
+    "partner.title":"Le meilleur",
+    "partner.title.highlight": "fournisseur"
+    "partner.name": "Head Spa Officiel" 
+    "partner.url": "https://headspa-officiel.com/?bg_ref=kgnuknJTzz"
 
     // Pricing
     "pricing.label": "Votre Formation",
