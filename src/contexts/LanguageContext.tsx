@@ -62,6 +62,22 @@ const translations = {
       "Plus qu'une formation, c'est une transmission : celle d'un savoir-faire d'exception et d'une philosophie où",
     "instructor.bio3.quote": '"chaque client devient une œuvre"',
     "instructor.credentials": "Shiatsu Certifié,Trichologie,Luxury Hospitality,Head Spa Expert",
+    <div className="flex flex-col items-center mt-10 gap-4">
+  <img
+    src={qualiopiLogo}
+    alt="Certification Qualiopi"
+    className="h-20 w-auto rounded-lg"
+  />
+
+  <p className="text-yellow-400 uppercase tracking-[0.3em] text-sm">
+    Certification Qualiopi
+  </p>
+
+  <p className="text-gray-300 text-center max-w-xl">
+    Formation professionnelle certifiée, éligible aux financements OPCO et
+    répondant aux exigences du référentiel national qualité.
+  </p>
+</div>
 
     // Curriculum
     "curriculum.label": "Le Programme",
