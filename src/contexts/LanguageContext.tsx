@@ -32,7 +32,7 @@ const translations = {
     "why.feature1.title": "Rentabilité",
     "why.feature1.subtitle": "ROI Exceptionnel",
     "why.feature1.description":
-      "Un Head Spa se facture entre 80€ et 150€. Avec une formation à 190€, votre investissement est rentabilisé dès le 2ème client.",
+      "Un Head Spa se facture entre 80€ et 150€. Avec une formation à 1500€, votre investissement est rentabilisé dès le 10ème client.",
     "why.feature2.title": "Expertise Japonaise",
     "why.feature2.subtitle": "Shiatsu & Massage",
     "why.feature2.description":
