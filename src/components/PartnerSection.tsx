@@ -1,4 +1,4 @@
-import qualiopiLogo from "@/assets/Capture d’écran 2026-08-09 223037.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const PartnerSection = () => {
   const { t } = useLanguage();
