@@ -1,4 +1,3 @@
-import qualiopiLogo from "@/Actifs/qualiopilogo.png";
 import { motion } from "framer-motion";
 import portrait from "@/assets/portrait.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -30,13 +29,7 @@ const InstructorSection = () => {
                 alt="Yohaqîne - Fondatrice de Spa Woda"
                 className="aspect-[3/4] w-full object-cover object-top"
               />
-              <div className="absolute bottom-4 right-4 bg-white p-2 rounded-lg shadow-lg">
-  <img
-    src={qualiopiLogo}
-    alt="Certification Qualiopi"
-    className="h-12 w-auto"
-  />
-</div>
+              
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             </div>
