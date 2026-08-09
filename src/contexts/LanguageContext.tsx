@@ -104,6 +104,19 @@ const translations = {
     "reviews.gallery.title": "Nos élèves",
     "reviews.gallery.highlight": "certifiés",
 
+    // Partenariat
+
+"partner.label": "Partenariat",
+
+"partner.title": "Le meilleur",
+"partner.title.highlight": "fournisseur",
+"partner.name": "Head Spa Officiel",
+"partner.description":
+  "En partenariat avec Head Spa Officiel, nous accompagnons les salons de coiffure, instituts et spas hôteliers dans la mise en place d'une offre Head Spa clé en main.",
+"partner.training":
+  "Yohaqîne intervient directement auprès des professionnels pour la formation et l'accompagnement.",
+"partner.url": "https://headspa-officiel.com/?bg_ref=kgnuknJTzz",
+
     // Pricing
     "pricing.label": "Votre Formation",
     "pricing.title": "Choisissez votre",
