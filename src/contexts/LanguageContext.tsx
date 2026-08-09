@@ -61,7 +61,7 @@ const translations = {
     "instructor.bio3":
       "Plus qu'une formation, c'est une transmission : celle d'un savoir-faire d'exception et d'une philosophie où",
     "instructor.bio3.quote": '"chaque client devient une œuvre"',
-    "instructor.credentials": "Shiatsu Certifié,Trichologie,Luxury Hospitality,Head Spa Expert",
+    "instructor.credentials": "Certifié Qualiopi,Trichologie,Luxury Hospitality,Head Spa Expert",
    
     // Curriculum
     "curriculum.label": "Le Programme",
