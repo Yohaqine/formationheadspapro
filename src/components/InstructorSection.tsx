@@ -27,7 +27,7 @@ const InstructorSection = () => {
               <img
                 src={portrait}
                 alt="Yohaqîne - Fondatrice de Spa Woda"
-                className="aspect-[3/4] w-full object-cover object-top"
+                className="w-full max-h-[520px] object-cover object-top"
               />
               
               {/* Gradient Overlay */}
