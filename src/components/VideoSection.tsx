@@ -92,7 +92,6 @@ const VideoSection = () => {
 
   </div>
 
-      </div>
     </section>
   );
 };
