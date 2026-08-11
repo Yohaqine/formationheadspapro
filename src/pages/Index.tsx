@@ -22,6 +22,7 @@ const Index = () => {
       <PartnerSection />
       <PricingSection />
       <ContactSection />
+      <VideoSection />
       <Footer />
       <MobileSticky />
     </main>
