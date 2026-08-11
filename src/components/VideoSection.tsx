@@ -88,7 +88,7 @@ const VideoSection = () => {
       )
     )}
   </div>
-</motion.div>/}
+</motion.div>
 
   </div>
 
