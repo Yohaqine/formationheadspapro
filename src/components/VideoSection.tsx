@@ -82,7 +82,7 @@ const VideoSection = () => {
           <img
             src={photo}
             alt={`Conférence Head Spa Japonais ${index + 1}`}
-            className="h-80 w-full object-cover transition duration-500 hover:scale-105"
+            className="h-56 w-full object-cover transition duration-500 hover:scale-105 md:h-80"
           />
         </div>
       )
