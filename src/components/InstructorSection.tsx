@@ -13,7 +13,7 @@ const InstructorSection = () => {
       <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-water/10 blur-3xl" />
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-[42%_58%] lg:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
           {/* Image Column - Asymmetric */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
