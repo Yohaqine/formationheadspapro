@@ -9,6 +9,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import MobileSticky from "@/components/MobileSticky";
 import PartnerSection from "@/components/PartnerSection";
+import VideoSection from "@/components/VideoSection";
 
 const Index = () => {
   return (
