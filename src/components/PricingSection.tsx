@@ -61,7 +61,7 @@ const PricingSection = () => {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="mx-auto flex max-w-5xl justify-center gap-6">
+        <div className="mx-auto flex max-w-5xl flex-col justify-center gap-6 md:flex-row">
           {/* Solo Option */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -116,6 +116,89 @@ const PricingSection = () => {
             {/* Decorative */}
             <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-clay-dark/5 transition-transform duration-500 group-hover:-translate-y-4 group-hover:translate-x-4" />
           </motion.div>
+          <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.2 }}
+  className="group relative w-full max-w-md overflow-hidden rounded-2xl border border-gold/30 bg-clay/5 p-8"
+>
+  {/* Badge */}
+  <div className="mb-6">
+    <span className="inline-block rounded-full bg-gold/20 px-4 py-2 text-xs font-medium uppercase tracking-wider text-gold">
+      Professionnels uniquement
+    </span>
+  </div>
+
+  {/* Header */}
+  <div className="mb-6 flex items-center gap-3">
+    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clay-dark/10">
+      <User className="h-6 w-6 text-clay-dark" />
+    </div>
+
+    <div>
+      <h3 className="font-display text-2xl text-foreground">
+        Professionnels
+      </h3>
+      <p className="text-sm text-muted-foreground">
+        Formation intensive - 1 journée
+      </p>
+    </div>
+  </div>
+
+  {/* Prix */}
+  <div className="mb-6 flex items-baseline gap-2">
+    <span className="font-display text-5xl font-light text-foreground">
+      950€
+    </span>
+    <span className="text-muted-foreground">
+      par personne
+    </span>
+  </div>
+
+  {/* Prestations */}
+  <ul className="mb-8 space-y-3">
+    {[
+      "1 journée de formation intensive",
+      "Réservée aux professionnels de la coiffure et du bien-être",
+      "Théorie ciblée et protocole Head Spa",
+      "Démonstration complète",
+      "Pratique sur modèle réel",
+      "Correction personnalisée",
+      "Certificat de formation",
+      "Accès à la formation en ligne",
+      "Suivi post-formation",
+    ].map((feature, index) => (
+      <li
+        key={index}
+        className="flex items-center gap-3 text-sm text-foreground/80"
+      >
+        <Check className="h-4 w-4 shrink-0 text-gold" />
+        {feature}
+      </li>
+    ))}
+  </ul>
+
+  {/* Boutons */}
+  <div className="flex flex-col gap-3">
+    <button
+      onClick={scrollToCurriculum}
+      className="btn-stone w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+    >
+      Voir le programme
+    </button>
+
+    <button
+      onClick={scrollToContact}
+      className="btn-gold w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+    >
+      Candidater
+    </button>
+  </div>
+
+  {/* Décoration */}
+  <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gold/5 transition-transform duration-500 group-hover:-translate-x-4 group-hover:translate-y-4" />
+</motion.div>
         </div>
 
         {/* Klarna Payment Notice */}
