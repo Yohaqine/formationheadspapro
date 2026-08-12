@@ -201,6 +201,20 @@ const PricingSection = () => {
 </motion.div>
         </div>
 
+        <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.3 }}
+  className="mt-10 text-center"
+>
+  <div className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-6 py-4">
+    <p className="text-sm font-medium text-foreground">
+      Financement professionnel possible via OPCO ou FAFCEA, selon votre éligibilité.
+    </p>
+  </div>
+</motion.div>
+
         {/* Klarna Payment Notice */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
