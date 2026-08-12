@@ -111,6 +111,14 @@ const PricingSection = () => {
               >
                 {t("pricing.cta.apply")}
               </button>
+              <a
+  href="https://buy.stripe.com/4gM9AVe88dMg5Vo7wAcV20o"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full rounded-full border border-gold/40 py-4 text-center font-body text-sm uppercase tracking-wider text-gold transition-all hover:bg-gold/10"
+>
+  Financement personnel
+</a>
             </div>
 
             {/* Decorative */}
@@ -192,7 +200,15 @@ const PricingSection = () => {
       className="btn-gold w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
     >
       Candidater
-    </button>
+    </button
+    <a
+  href="https://buy.stripe.com/eVq4gB7JKbE8gA2g36cV20p"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full rounded-full border border-gold/40 py-4 text-center font-body text-sm uppercase tracking-wider text-gold transition-all hover:bg-gold/10"
+>
+  Financement personnel
+</a>
   </div>
 
   {/* Décoration */}
