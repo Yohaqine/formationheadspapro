@@ -172,7 +172,7 @@ const PricingSection = () => {
       "Théorie ciblée 
       "Pratique sur modèle réel",
       "Correction personnalisée",
-      "Certificat de formation",
+      "Certificat Head Spa",
       "Accès à la formation en ligne",
       "Suivi post-formation",
     ].map((feature, index) => (
