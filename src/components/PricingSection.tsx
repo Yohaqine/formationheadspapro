@@ -200,7 +200,7 @@ const PricingSection = () => {
     >
       Candidater
     </button>
-    <a>
+    <a
   href="https://buy.stripe.com/eVq4gB7JKbE8gA2g36cV20p"
   target="_blank"
   rel="noopener noreferrer"
