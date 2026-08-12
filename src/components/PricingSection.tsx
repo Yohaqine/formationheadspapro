@@ -169,9 +169,8 @@ const PricingSection = () => {
     {[
       "1 journée de formation intensive",
       "Réservée aux professionnels de la coiffure et du bien-être",
-      "Théorie ciblée 
-      "Pratique sur modèle réel",
-      "Correction personnalisée",
+      "Théorie ciblée",
+      "Pratique sur modèle réel & correction personnalisée",
       "Certificat Head Spa",
       "Accès à la formation en ligne",
       "Suivi post-formation",
