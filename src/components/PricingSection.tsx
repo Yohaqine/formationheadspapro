@@ -199,8 +199,8 @@ const PricingSection = () => {
       className="btn-gold w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
     >
       Candidater
-    </button
-    <a
+    </button>
+    <a>
   href="https://buy.stripe.com/eVq4gB7JKbE8gA2g36cV20p"
   target="_blank"
   rel="noopener noreferrer"
