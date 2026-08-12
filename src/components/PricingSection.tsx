@@ -149,7 +149,7 @@ const PricingSection = () => {
   {/* Prix */}
   <div className="mb-6 flex items-baseline gap-2">
     <span className="font-display text-5xl font-light text-foreground">
-      950€
+      950€ 
     </span>
     <span className="text-muted-foreground">
       par personne
@@ -161,8 +161,7 @@ const PricingSection = () => {
     {[
       "1 journée de formation intensive",
       "Réservée aux professionnels de la coiffure et du bien-être",
-      "Théorie ciblée et protocole Head Spa",
-      "Démonstration complète",
+      "Théorie ciblée 
       "Pratique sur modèle réel",
       "Correction personnalisée",
       "Certificat de formation",
