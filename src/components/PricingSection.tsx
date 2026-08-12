@@ -121,7 +121,7 @@ const PricingSection = () => {
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true }}
   transition={{ delay: 0.2 }}
-  className="group relative w-full max-w-md overflow-hidden rounded-2xl border border-gold/30 bg-clay/5 p-8"
+  className="group relative w-full max-w-md overflow-hidden rounded-2xl border border-gold/30 bg-clay/5 p-6"
 >
   {/* Badge */}
   <div className="mb-6">
@@ -157,7 +157,7 @@ const PricingSection = () => {
   </div>
 
   {/* Prestations */}
-  <ul className="mb-8 space-y-3">
+  <ul className="mb-6 space-y-2">
     {[
       "1 journée de formation intensive",
       "Réservée aux professionnels de la coiffure et du bien-être",
