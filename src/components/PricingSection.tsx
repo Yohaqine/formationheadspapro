@@ -209,9 +209,27 @@ const PricingSection = () => {
   className="mt-10 text-center"
 >
   <div className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-6 py-4">
-    <p className="text-sm font-medium text-foreground">
-      Financement professionnel possible via OPCO ou FAFCEA, selon votre éligibilité.
-    </p>
+   <p className="text-sm font-medium text-foreground">
+  Financement professionnel possible via{" "}
+  <a
+    href="https://www.opcoep.fr/entreprise/financer-mes-projets"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gold underline underline-offset-4 hover:opacity-80"
+  >
+    OPCO
+  </a>
+  {" "}ou{" "}
+  <a
+    href="https://www.fafcea.com/jai-deja-trouve-ma-formation/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gold underline underline-offset-4 hover:opacity-80"
+  >
+    FAFCEA
+  </a>
+  , selon votre éligibilité.
+</p>
   </div>
 </motion.div>
 
