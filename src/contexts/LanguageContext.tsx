@@ -135,7 +135,7 @@ const translations = {
     "pricing.group4.price": "600€",
     "pricing.group4.payment": "par personne",
     "pricing.features":
-      "2 jours de formation intensive,Pratique sur modèles réels,Correction personnalisée,Certificat Head Spa,Suivi post-formation illimité",
+  "2 jours de formation,Pratique sur modèles réels,Correction personnalisée,Certificat Head Spa,Suivi post-formation illimité,Tous profils,Débutants acceptés",
     "pricing.cta.program": "Voir le programme",
     "pricing.cta.apply": "Candidater",
     "pricing.recommended": "Meilleur rapport qualité/prix",
