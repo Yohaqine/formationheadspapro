@@ -215,6 +215,76 @@ const PricingSection = () => {
 </motion.div>
         </div>
 
+           Professionnels
+      </h3>
+      <p className="text-sm text-muted-foreground">
+        Formation e-learning
+      </p>
+    </div>
+  </div>
+
+  {/* Prix */}
+  <div className="mb-6 flex items-baseline gap-2">
+    <span className="font-display text-5xl font-light text-foreground">
+      490€ 
+    </span>
+    <span className="text-muted-foreground">
+      par personne
+    </span>
+  </div>
+
+  {/* Prestations */}
+  <ul className="mb-6 space-y-2">
+    {[
+       "Formation 100 % en ligne",
+       "Théorie complète du Head Spa Japonais",
+       "Protocoles & techniques professionnelles",
+       "Supports pédagogiques inclus",
+       "Accompagnement par la formatrice du début à la fin",
+       "Certificat Head Spa",
+       "Suivi post-formation",
+       "Financement possible OPCO & FAFCEA",
+    ].map((feature, index) => (
+      <li
+        key={index}
+        className="flex items-center gap-3 text-sm text-foreground/80"
+      >
+        <Check className="h-4 w-4 shrink-0 text-gold" />
+        {feature}
+      </li>
+    ))}
+  </ul>
+
+  {/* Boutons */}
+  <div className="flex flex-col gap-3">
+    <button
+      onClick={scrollToCurriculum}
+      className="btn-stone w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+    >
+      Voir le programme
+    </button>
+
+    <button
+      onClick={scrollToContact}
+      className="btn-gold w-full rounded-full py-4 text-center font-body text-sm uppercase tracking-wider"
+    >
+      Candidater
+    </button>
+    <a
+  href="https://buy.stripe.com/eVq4gB7JKbE8gA2g36cV20p"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full rounded-full border border-gold/40 py-4 text-center font-body text-sm uppercase tracking-wider text-gold transition-all hover:bg-gold/10"
+>
+  Financement personnel
+</a>
+  </div>
+
+  {/* Décoration */}
+  <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gold/5 transition-transform duration-500 group-hover:-translate-x-4 group-hover:translate-y-4" />
+</motion.div>
+        </div>
+
         <motion.div
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
