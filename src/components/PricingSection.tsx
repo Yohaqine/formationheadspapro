@@ -215,19 +215,35 @@ const PricingSection = () => {
 </motion.div>
         </div>
 
-           Professionnels
-      </h3>
-      <p className="text-sm text-muted-foreground">
-        Formation e-learning
-      </p>
+  <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.3 }}
+  className="relative group rounded-2xl border border-gold/30 bg-card p-8"
+>
+  <div className="mb-6">
+    <div className="mb-4 inline-flex rounded-full bg-gold/20 px-4 py-2">
+      <span className="text-xs font-semibold uppercase tracking-wider text-gold">
+        Formation à distance
+      </span>
     </div>
+
+    <h3 className="font-display text-2xl text-foreground">
+      Formation en ligne
+    </h3>
+
+    <p className="text-sm text-muted-foreground">
+      Formation Head Spa Japonais 100 % en ligne
+    </p>
   </div>
 
   {/* Prix */}
   <div className="mb-6 flex items-baseline gap-2">
     <span className="font-display text-5xl font-light text-foreground">
-      490€ 
+      490€
     </span>
+
     <span className="text-muted-foreground">
       par personne
     </span>
@@ -236,14 +252,14 @@ const PricingSection = () => {
   {/* Prestations */}
   <ul className="mb-6 space-y-2">
     {[
-       "Formation 100 % en ligne",
-       "Théorie complète du Head Spa Japonais",
-       "Protocoles & techniques professionnelles",
-       "Supports pédagogiques inclus",
-       "Accompagnement par la formatrice du début à la fin",
-       "Certificat Head Spa",
-       "Suivi post-formation",
-       "Financement possible OPCO & FAFCEA",
+      "Formation 100 % en ligne",
+      "Théorie complète du Head Spa Japonais",
+      "Protocoles & techniques professionnelles",
+      "Supports pédagogiques inclus",
+      "Accompagnement par la formatrice du début à la fin",
+      "Certificat Head Spa",
+      "Suivi post-formation",
+      "Financement possible OPCO & FAFCEA",
     ].map((feature, index) => (
       <li
         key={index}
@@ -270,20 +286,11 @@ const PricingSection = () => {
     >
       Candidater
     </button>
-    <a
-  href="https://buy.stripe.com/eVq4gB7JKbE8gA2g36cV20p"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full rounded-full border border-gold/40 py-4 text-center font-body text-sm uppercase tracking-wider text-gold transition-all hover:bg-gold/10"
->
-  Financement personnel
-</a>
   </div>
 
   {/* Décoration */}
   <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gold/5 transition-transform duration-500 group-hover:-translate-x-4 group-hover:translate-y-4" />
 </motion.div>
-        </div>
 
         <motion.div
   initial={{ opacity: 0, y: 20 }}
