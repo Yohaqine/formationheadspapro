@@ -357,9 +357,10 @@ const PricingSection = () => {
               {t("pricing.travel")}
             </p>
           </div>
-        </motion.div>
-    </section>
-  );
+       </motion.div>
+</div>
+</section>
+);
 };
 
 export default PricingSection;
