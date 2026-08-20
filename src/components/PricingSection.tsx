@@ -157,7 +157,7 @@ const PricingSection = () => {
   {/* Prix */}
   <div className="mb-6 flex items-baseline gap-2">
     <span className="font-display text-5xl font-light text-foreground">
-      950€ 
+      990€ 
     </span>
     <span className="text-muted-foreground">
       par personne
