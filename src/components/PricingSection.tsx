@@ -59,6 +59,39 @@ const PricingSection = () => {
             <span className="font-body text-sm font-medium text-gold">{t("pricing.duration")}</span>
           </div>
         </motion.div>
+        {/* Qualiopi Certification */}
+<div className="mb-12 flex justify-center">
+  <div className="w-full max-w-4xl rounded-2xl border border-gold/30 bg-gold/5 p-6 md:p-8">
+    <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
+
+      <img
+        src="/qualiopilogo.png"
+        alt="Certification Qualiopi"
+        className="w-48 rounded-lg bg-white p-3 md:w-56"
+      />
+
+      <div className="text-center md:text-left">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+          Organisme de formation certifié
+        </p>
+
+        <h3 className="font-display text-3xl text-foreground">
+          Certification Qualiopi
+        </h3>
+
+        <p className="mt-2 text-sm text-muted-foreground">
+          Certification qualité délivrée au titre de la catégorie
+          <span className="font-semibold text-foreground"> Actions de formation</span>
+        </p>
+
+        <p className="mt-3 text-sm font-medium text-gold">
+          Financements possibles OPCO & FAFCEA selon votre éligibilité
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
 
         {/* Pricing Cards */}
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -359,35 +392,7 @@ const PricingSection = () => {
           </div>
        </motion.div>
 </div>
-      {/* Qualiopi Certification */}
-<div className="mt-12 flex justify-center">
-  <div className="w-full max-w-4xl rounded-2xl border border-gold/30 bg-gold/5 p-6 md:p-8">
-    <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
-
-      <img
-        src="/qualiopilogo.png"
-        alt="Certification Qualiopi"
-        className="w-48 rounded-lg bg-white p-3 md:w-56"
-      />
-
-      <div className="text-center md:text-left">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-          Organisme de formation certifié
-        </p>
-
-        <h3 className="font-display text-3xl text-foreground">
-          Certification Qualiopi
-        </h3>
-
-        <p className="mt-2 text-sm text-muted-foreground">
-          Certification qualité délivrée au titre de la catégorie
-          <span className="font-semibold text-foreground"> Actions de formation</span>
-        </p>
-
-        <p className="mt-3 text-sm font-medium text-gold">
-          Financements possibles OPCO & FAFCEA selon votre éligibilité
-        </p>
-      </div>
+    
 
     </div>
   </div>
