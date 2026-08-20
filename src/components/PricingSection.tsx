@@ -61,14 +61,14 @@ const PricingSection = () => {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="mx-auto flex max-w-5xl flex-col justify-center gap-6 md:flex-row">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Solo Option */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="glass-card-light group relative w-full max-w-md overflow-hidden rounded-2xl border border-clay-dark/20 bg-clay/5 p-8"
+            className="glass-card-light group relative w-full overflow-hidden rounded-2xl border border-clay-dark/20 bg-clay/5 p-8"
           >
             {/* Header */}
             <div className="mb-6 flex items-center gap-3">
@@ -213,7 +213,7 @@ const PricingSection = () => {
   {/* Décoration */}
   <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gold/5 transition-transform duration-500 group-hover:-translate-x-4 group-hover:translate-y-4" />
 </motion.div>
-        </div>
+      
 
   <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -291,7 +291,8 @@ const PricingSection = () => {
   {/* Décoration */}
   <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gold/5 transition-transform duration-500 group-hover:-translate-x-4 group-hover:translate-y-4" />
 </motion.div>
-
+</div>
+        
         <motion.div
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
@@ -357,7 +358,6 @@ const PricingSection = () => {
             </p>
           </div>
         </motion.div>
-      </div>
     </section>
   );
 };
